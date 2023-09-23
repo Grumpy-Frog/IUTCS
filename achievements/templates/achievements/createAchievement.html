@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create a Post </h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title: <input type="text" name="title" required/><br/>
+        Image: <input name="image" id="image" type="file" accept="image/*" class="form-control" required>
+        <br><br/>
+        Content: <br/>
+        <textarea cols="35" rows="8" name="content" required></textarea><br/>
+        <input type="submit" value="Post"/>
+    </form>
+{% endblock content %}

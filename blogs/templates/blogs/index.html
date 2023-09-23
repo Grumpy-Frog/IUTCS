@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for i in blog %}
+
+        <div class="box">
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <p class="title">{{ i.title }}</p>
+                    <p class="subtitle">{{ i.author }}</p>
+                    <p class="subtitle">{{ i.created_at|date:"Y-m-d H:i" }}</p>
+                </div>
+            </section>
+
+            <div class="content">
+                <a href="{{ i.id }}">Read more</a>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+{% endblock content %}

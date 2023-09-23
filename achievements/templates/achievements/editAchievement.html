@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit a Achievement </h1>
+    <form action="{% url 'achievements:update_Achievement' pk=achievement.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title:<br>
+        <input name="title" value="{{ achievement.title }}">
+        <br><br>
+        Image: <br>
+        <img src="{{ achievement.image }}">
+        <input name="image" id="image" type="file" accept="image/*" class="form-control" >
+        Description:<br>
+        <input name="content" value="{{ achievement.description }}">
+        <br><br>
+        <input type="submit" value="Accept" class="btn btn-success btn-large">
+
+
+    </form>
+{% endblock content %}
