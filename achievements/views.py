@@ -83,3 +83,11 @@ def updateAchievement(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse("achievements:achievements"))
+
+def deleteAchievement(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    d_achievement = Achievement.objects.get(pk=pk)
+    d_achievement.delete()
+
+    return HttpResponseRedirect(
+        reverse("achievements:achievements"))

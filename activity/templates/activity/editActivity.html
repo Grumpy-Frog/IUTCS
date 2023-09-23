@@ -18,8 +18,8 @@
         <br><br>
         <input type="button" onclick="saveContent()" value="Accept" class="btn btn-success btn-large">
 
-        <input type="button" onclick="deleteContent()"
-               value="delete" class="btn btn-simple">
+        <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
+        <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
 
 
     </form>
@@ -27,6 +27,9 @@
     <script>
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        function cancel(){
+            window.location.href = {%  url 'activity:activity' %}
         }
 
         function saveContent() {
