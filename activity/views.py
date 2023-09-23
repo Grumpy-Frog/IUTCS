@@ -9,6 +9,8 @@ from django.views import generic
 from django.views.generic import TemplateView
 
 from .models import Activity
+
+
 # Create your views here.
 
 def index(request):
@@ -55,11 +57,8 @@ def updateActivity(request, *args, **kwargs):
     if request.POST['time']:
         time = request.POST['time']
     else:
-        time=activity.time
+        time = activity.time
     description = request.POST['content']
-
-
-
 
     activity.title = title
     activity.time = time
@@ -69,8 +68,6 @@ def updateActivity(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse("activity:activity"))
-
-
 
 
 def deleteActcity(request, *args, **kwargs):

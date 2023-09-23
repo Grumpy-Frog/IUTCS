@@ -3,12 +3,16 @@
 {% block content %}
     <div class="container">
 
-            <a href={%  url 'achievements:create_achievement' %}>
-                <button type="button">Create Achievement</button>
-            </a>
-            <a href={%  url 'activity:create_activity' %}>
-                <button type="button">Create Activity</button>
-            </a>
+        <a href={% url 'achievements:create_achievement' %}>
+            <button type="button">Create Achievement</button>
+        </a>
+        <a href={% url 'activity:create_activity' %}>
+            <button type="button">Create Activity</button>
+        </a>
+        <a href={% url 'blogs:create_blog' %}>
+            <button type="button">Create Blog</button>
+        </a>
+
 
     </div>
 {% endblock content %}

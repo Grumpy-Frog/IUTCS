@@ -2,36 +2,62 @@
 
 
 {% block content %}
-    <h1>Edit a Achievement </h1>
-    <form action="{% url 'activity:update_activity' pk=activity.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
+    <h1>Edit a Blog </h1>
+    <form action="{% url 'blogs:update_blog' pk=blog.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         Title:<br>
-        <input name="title" value="{{ activity.title }}">
+        <input name="title" value="{{ blog.title }}">
         <br><br>
-        Time:
-        <p class="subtitle">{{ activity.time|date:"Y-m-d  H:i" }}</p>
-        <input type="datetime-local" id="activity_time" name="time">
-        <br>
+        Author:
+        <input name="author" value="{{ blog.author }}">
+        <br><br>
 
-        Description:<br>
-        <input name="content" value="{{ activity.description }}">
+
+        Content:<br>
+        <input name="content" value="{{ blog.content }}">
         <br><br>
-        <input type="submit" onclick="saveContent()" value="Accept" class="btn btn-success btn-large">
+        <input type="submit" value="Accept" class="btn btn-success btn-large">
 
         <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
         <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
 
-
+        <div>
+            <h2>Preview:</h2>
+            <div id="preview"></div>
+        </div>
     </form>
+
+    <script>
+        const markdownInput = document.getElementById('markdown');
+        const preview = document.getElementById('preview');
+
+        // Update the preview whenever the input changes
+        markdownInput.addEventListener('input', updatePreview);
+
+        function updatePreview() {
+            const markdownContent = markdownInput.value;
+            // Replace this with your own markdown-to-HTML conversion logic
+            const htmlContent = convertMarkdownToHTML(markdownContent);
+            preview.innerHTML = htmlContent;
+        }
+
+        // Function to convert markdown to HTML (you can use a library like "marked" or "markdown-it")
+        function convertMarkdownToHTML(markdown) {
+            // Replace this with your chosen markdown-to-HTML conversion logic
+            // For example, you can use a library like "marked"
+            return marked(markdown);
+        }
+
+        // Initialize the preview on page load
+        updatePreview();
+    </script>
 
     <script>
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-
-        function cancel() {
-            window.location.href =
-            {%  url 'activity:activity' %}
+        function cancel(){
+            window.location.href = {%  url 'blogs:blogs' %}
         }
 
         document.getElementById('myForm').addEventListener('submit', function (event) {
@@ -73,7 +99,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch('{% url 'activity:delete_activity' pk=activity.pk %}')
+                    fetch('{% url 'blogs:delete_blog' pk=blog.pk %}')
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
@@ -97,7 +123,7 @@
             }).then(function () {
                 setTimeout(function () {
                     window.location.href =
-                    {%  url 'activity:activity' %}
+                    {%  url 'blogs:blogs' %}
                 }, 1000);
             })
         }

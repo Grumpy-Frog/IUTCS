@@ -61,7 +61,7 @@ def updateAchievement(request, *args, **kwargs):
 
     title = request.POST['title']
     description = request.POST['content']
-    image = request.FILES['image']
+
 
     try:
         dir = "/media/"
