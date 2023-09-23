@@ -1,0 +1,131 @@
+/* Style for the container */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width:1000px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Style for the individual images */
+.image {
+    flex: 0 0 calc(33.33% - 0px); /* Adjust the width of each image */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the images (adjust dimensions as needed) */
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+h1 {
+    text-align: center;
+    padding: 10px;
+    color: black;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(136, 22, 22);
+    text-decoration-thickness: 5px;
+}
+h2 {
+    
+    padding-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(136, 22, 22);
+    text-decoration-thickness: 5px;
+}
+/* Style for the site title */
+.site-title {
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lucida Sans';
+    margin: 0;
+    padding: 10px 0; /* Add some vertical spacing */
+}
+.site-title2 {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Lucida Sans';
+    margin: 0;
+    padding: 10px 0; /* Add some vertical spacing */
+    padding-bottom: 30px;
+}
+.overview-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px; /* Adjust the maximum width of the section as needed */
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Style the Overview Text */
+.overview-text {
+    flex: 1;
+    padding: 10px;
+}
+
+.overview-text h2 {
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.overview-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Style the Overview Image */
+.overview-image {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.overview-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+/* Style for the contact section */
+.contact-section {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style for contact person information */
+.contact-person {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-person h3 {
+    margin: 0;
+}
+
+.contact-person p {
+    margin: 5px 0;
+}
+
+/* Style for email links */
+.contact-person a {
+    color: #0070c0;
+    text-decoration: none;
+}
+.contact-person a:hover {
+    text-decoration: underline;
+}
+

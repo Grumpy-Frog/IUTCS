@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    padding-bottom: 120px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; 
+}
+
+.im-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+}
+
+.image-card {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
+    width: 20%; /* Set the width to 20% */
+    max-width: calc(25% - 20px); /* To fit 4 images in a row with spacing */
+    text-align: center;
+    margin: 0 10px; /* Add spacing between images */
+}
+
+.image-card img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Center the image horizontally */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.image-card p {
+    margin: 10px 0;
+    font-weight: bold;
+    color: red;
+}
+.center-text {
+    font-size: 7px;
+    font-weight: bold;
+}
+h1 {
+    text-align: center;
+    padding: 10px;
+    color: black;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(136, 22, 22);
+    text-decoration-thickness: 5px;
+}
