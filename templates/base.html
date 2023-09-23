@@ -5,6 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>IUT CS</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
     <link rel="stylesheet" href="/static/styles/achievements.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
@@ -47,8 +52,6 @@
                 <li><a href="/admin" class="btn btn-simple">Admin</a></li>
                 <li><a href="/admin_panel" class="btn btn-simple">Admin Panel</a></li>
 
-
-                
         </ul>
     </div>
 </nav>
@@ -58,6 +61,9 @@
 
     {% endblock %}
     <br><br>
+
+{% load sweetify %}
+{% sweetify %}
 </div>
 </body>
 </html>

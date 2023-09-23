@@ -72,6 +72,7 @@ def updateActivity(request, *args, **kwargs):
 
 
 
+
 def deleteActcity(request, *args, **kwargs):
     pk = kwargs.get('pk')
     d_activity = Activity.objects.get(pk=pk)

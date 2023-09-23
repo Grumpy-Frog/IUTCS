@@ -2,51 +2,103 @@
 
 
 {% block content %}
-
-    <script src="sweetalert.min.js"></script>
-
     <h1>Edit a Achievement </h1>
-    <form action="{% url 'activity:update_activity' pk=activity.pk %}" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         Title:<br>
         <input name="title" value="{{ activity.title }}">
         <br><br>
         Time:
         <p class="subtitle">{{ activity.time|date:"Y-m-d  H:i" }}</p>
-        <input type="datetime-local" id="activity_time" name="time" >
+        <input type="datetime-local" id="activity_time" name="time">
         <br>
 
         Description:<br>
         <input name="content" value="{{ activity.description }}">
         <br><br>
-        <input type="submit" value="Accept" class="btn btn-success btn-large">
-        <a href="{% url 'activity:delete_activity'  pk=activity.pk %}"
-           onclick="myFunction()"
-           type="delete"
-           class="btn btn-simple">
-            <span class="glyphicon glyphicon-remove text-danger"></span>
-            <span class="text-danger icon-label">Delete</span>
-        </a>
+        <input type="button" onclick="saveContent()" value="Accept" class="btn btn-success btn-large">
+
+        <input type="button" onclick="deleteContent()"
+               value="delete" class="btn btn-simple">
+
 
     </form>
 
     <script>
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
-        })
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function saveContent() {
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Save',
+
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire('Saved!', '', 'success')
+
+                    setTimeout(function () {
+                        window.location.href =
+                        {%  url 'activity:activity' %}
+                    }, 2000);
+                }
+            })
+        }
+
+        function deleteContent() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch('{% url 'activity:delete_activity' pk=activity.pk %}')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log(data.message);
+                        })
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            }).then(function () {
+                setTimeout(function () {
+                    window.location.href =
+                    {%  url 'activity:activity' %}
+                }, 1000);
+            })
+        }
+
     </script>
+
+
 {% endblock content %}
