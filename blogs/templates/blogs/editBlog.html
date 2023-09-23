@@ -37,8 +37,14 @@
 
         <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
         <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
+        <input type="button" onclick="update()" value="update preview" class="btn btn-simple">
+
 
         <!--
+        <div class="content">
+            {{ blog.content|convert_markdown|safe }}
+        </div>
+
         <div>
             <h2>Preview:</h2>
             <div>
@@ -71,7 +77,22 @@
 
 
     </script>
+    <script>
+        function update(){
+            fetch('{% url 'blogs:update_blog' pk=blog.pk %}')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log(data.message);
+                        }).then()
+        }
+    </script>
     -->
+
 
     <script>
         function sleep(ms) {

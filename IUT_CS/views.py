@@ -9,3 +9,6 @@ class ExecutiveCommittee(TemplateView):
 
 class about(TemplateView):
     template_name = 'about.html'
+
+class home(TemplateView):
+    template_name = 'home.html'

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "admin_panel",
     "activity",
     "sweetify",
+    "event",
 ]
 
 MIDDLEWARE = [

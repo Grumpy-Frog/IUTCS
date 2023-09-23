@@ -30,12 +30,34 @@
 
 
 
+    <!-- from essence code -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Grayrids">
+    <!-- <title>Essence - Bootstrap 4 Template</title> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles/line-icons.css">
+    <link rel="stylesheet" href="/static/styles/owl.carousel.css">
+    <link rel="stylesheet" href="/static/styles/owl.theme.css">
+    <link rel="stylesheet" href="/static/styles/nivo-lightbox.css">
+    <link rel="stylesheet" href="/static/styles/magnific-popup.css">
+    <link rel="stylesheet" href="/static/styles/animate.css">
+    <link rel="stylesheet" href="/static/styles/color-switcher.css">
+    <link rel="stylesheet" href="/static/styles/menu_sideslide.css">
+    <link rel="stylesheet" href="/static/styles/main.css">    
+    <link rel="stylesheet" href="/static/styles/responsive.css">
+
+
 </head>
 
 
 <body>
 
-<nav class="navbar navbar-expand-sm  mynav " role="navigation" id="navbar">
+<!-- <nav class="navbar navbar-expand-sm  mynav " role="navigation" id="navbar">
     <div class="container">
 
         <a class="navbar-brand mynav" href="{% url 'home' %}">IUT CS</a>
@@ -54,11 +76,81 @@
 
         </ul>
     </div>
-</nav>
+</nav> -->
+
+
+ <!-- Header Section Start -->
+ <!-- body from essence code starts here -->
+ <header id="slider-area">  
+    <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
+      <div class="container">          
+        <a class="navbar-brand" href="/home"><img src="/media/slider/logof.png" height="200"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="lni-menu"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/executive_committee">Executive Committee</a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/events">Events</a>
+            </li>                            
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/achievements">Achievements</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/activity">Activities</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/about">About</a>
+            </li>    
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/blogs">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/admin">Admin</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="/admin_panel">Admin Panel</a>
+            </li> 
+          </ul>              
+        </div>
+      </div>
+    </nav> 
+
+    <!-- <nav class="navbar navbar-expand-sm  mynav " role="navigation" id="navbar">
+      <div class="container">
+  
+          <a class="navbar-brand mynav" href="{% url 'home' %}">IUT CS</a>
+  
+          <ul class="nav navbar-nav navbar-right">
+  
+  
+                  <li><a href="/executive_committee/" class="btn btn-simple">Executive Committee</a></li>
+                  <li><a href="" class="btn btn-simple">Events</a></li>
+                  <li><a href="/achievements" class="btn btn-simple">Achievements</a></li>
+                  <li><a href="/activity" class="btn btn-simple">Activities</a></li>
+                  <li><a href="/about" class="btn btn-simple">About</a></li>
+                  <li><a href="/blogs" class="btn btn-simple">Blog</a></li>
+                  <li><a href="/admin" class="btn btn-simple">Admin</a></li>
+                  <li><a href="/admin_panel" class="btn btn-simple">Admin Panel</a></li>
+  
+          </ul>
+      </div>
+  </nav> -->
+
+    <!-- Main Carousel Section -->
+    
 
 <div class="container mycontent">
     {% block content %}
 
+
+  <!-- body from essence code ends here -->
     {% endblock %}
     <br><br>
 

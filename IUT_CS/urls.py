@@ -21,18 +21,16 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('mdeditor/', include('mdeditor.urls')),
-    path('blogs/',include('blogs.urls')),
-    path('achievements/',include('achievements.urls')),
-    path('activity/',include('activity.urls')),
-    path('executive_committee/',views.ExecutiveCommittee.as_view(),name='executive_committee'),
-    path('about/',views.about.as_view(),name='about'),
-    path('admin_panel/',include('admin_panel.urls')),
-    path('', views.HomePage.as_view(), name='home'),
+                  path("admin/", admin.site.urls),
+                  path('home/', views.home.as_view(), name='home_'),
+                  path('mdeditor/', include('mdeditor.urls')),
+                  path('blogs/', include('blogs.urls')),
+                  path('events/', include('event.urls')),
+                  path('achievements/', include('achievements.urls')),
+                  path('activity/', include('activity.urls')),
+                  path('executive_committee/', views.ExecutiveCommittee.as_view(), name='executive_committee'),
+                  path('about/', views.about.as_view(), name='about'),
+                  path('admin_panel/', include('admin_panel.urls')),
+                  path('', views.home.as_view(), name='home'),
 
-
-
-
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
