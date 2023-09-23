@@ -27,6 +27,7 @@ urlpatterns = [
     path('achievements/',include('achievements.urls')),
     path('activity/',include('activity.urls')),
     path('executive_committee/',views.ExecutiveCommittee.as_view(),name='executive_committee'),
+    path('about/',views.about.as_view(),name='about'),
     path('admin_panel/',include('admin_panel.urls')),
     path('', views.HomePage.as_view(), name='home'),
 

@@ -1,9 +1,11 @@
 import os
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.views import generic
 from django.views.generic import TemplateView
 
 from .models import Activity
@@ -50,7 +52,10 @@ def updateActivity(request, *args, **kwargs):
     activity = Activity.objects.get(pk=pk)
 
     title = request.POST['title']
-    time = request.POST['time']
+    if request.POST['time']:
+        time = request.POST['time']
+    else:
+        time=activity.time
     description = request.POST['content']
 
 
@@ -61,6 +66,16 @@ def updateActivity(request, *args, **kwargs):
     activity.description = description
 
     activity.save()
+
+    return HttpResponseRedirect(
+        reverse("activity:activity"))
+
+
+
+def deleteActcity(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    d_activity = Activity.objects.get(pk=pk)
+    d_activity.delete()
 
     return HttpResponseRedirect(
         reverse("activity:activity"))

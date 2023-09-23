@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "achievements",
     "admin_panel",
     "activity",
+    "sweetify",
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "IUT_CS.wsgi.application"
+
+# possible options: 'sweetalert', 'sweetalert2' - default is 'sweetalert2'
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 LOGIN_REDIRECT_URL = 'admin_panel'
 # Database
