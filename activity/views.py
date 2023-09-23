@@ -16,23 +16,24 @@ def index(request):
     return render(request, 'activity/index.html', context)
 
 
-def createAchievement(request):
+def createActivity(request):
     if request.method == 'POST':
         if request.POST.get('title') and request.POST.get('content'):
-            post = Activity()
-            post.title = request.POST.get('title')
-            post.description = request.POST.get('content')
+            activity = Activity()
+            activity.title = request.POST.get('title')
+            activity.time = request.POST.get('time')
+            activity.description = request.POST.get('content')
 
-            post.save()
+            activity.save()
 
-            return redirect("activity:create_activity")
+            return redirect("activity:activity")
 
     else:
-        return render(request, 'achievements/createAchievement.html')
+        return render(request, 'activity/createActivity.html')
 
 
 class editActivity(TemplateView):
-    template_name = 'activity/editAchievement.html'
+    template_name = 'activity/editActivity.html'
 
     def get_context_data(self, *args, **kwargs):
         activity = Activity.objects.get(pk=self.kwargs.get('pk'))
@@ -49,16 +50,17 @@ def updateActivity(request, *args, **kwargs):
     activity = Activity.objects.get(pk=pk)
 
     title = request.POST['title']
+    time = request.POST['time']
     description = request.POST['content']
 
 
 
 
     activity.title = title
-
+    activity.time = time
     activity.description = description
 
     activity.save()
 
     return HttpResponseRedirect(
-        reverse("activity:update_activity"))
+        reverse("activity:activity"))

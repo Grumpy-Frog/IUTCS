@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit a Achievement </h1>
+    <form action="{% url 'activity:update_activity' pk=activity.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title:<br>
+        <input name="title" value="{{ activity.title }}">
+        <br><br>
+        Time:
+        <p class="subtitle">{{ activity.time|date:"Y-m-d  H:i" }}</p>
+        <input type="datetime-local" id="activity_time" name="time" required>
+        <br>
+
+        Description:<br>
+        <input name="content" value="{{ activity.description }}">
+        <br><br>
+        <input type="submit" value="Accept" class="btn btn-success btn-large">
+
+
+    </form>
+{% endblock content %}
