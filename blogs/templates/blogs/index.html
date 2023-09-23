@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
     {% for i in blog %}
 
         <div class="box">
@@ -17,7 +19,7 @@
             </div>
 
             {% if user.is_authenticated %}
-                <a href={% url 'blogs:edit_blog' pk=i.id %}>
+                <a href='{% url 'blogs:edit_blog' pk=i.id %}'>
                     <button type="button">Edit</button>
                 </a>
             {% endif %}

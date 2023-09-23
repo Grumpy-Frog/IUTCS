@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
+{% load blog_extras %}
 
 {% block content %}
+    <style>
+        /* Style to make input look like textarea */
+        .textarea-like-input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+            width: 300px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            resize: none; /* Disable textarea resizing */
+        }
+    </style>
+
+
     <h1>Edit a Blog </h1>
     <form action="{% url 'blogs:update_blog' pk=blog.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
@@ -14,50 +28,59 @@
 
 
         Content:<br>
-        <input name="content" value="{{ blog.content }}">
+        <textarea id="inputText" name="content" rows="15" cols="90">
+            {{ blog.content }}
+        </textarea>
+
         <br><br>
         <input type="submit" value="Accept" class="btn btn-success btn-large">
 
         <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
         <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
 
+        <!--
         <div>
             <h2>Preview:</h2>
-            <div id="preview"></div>
+            <div>
+                <textarea id="markdown" rows="15" cols="90" placeholder="Preview will appear here..."
+                          readonly></textarea>
+            </div>
         </div>
+        -->
+
+
     </form>
 
+    <!--
     <script>
-        const markdownInput = document.getElementById('markdown');
-        const preview = document.getElementById('preview');
+        // Get references to the input field and the preview div
+        const inputText = document.getElementById("inputText");
+        const preview = document.getElementById("markdown");
 
-        // Update the preview whenever the input changes
-        markdownInput.addEventListener('input', updatePreview);
 
+        // Add an event listener to the input field to listen for changes
+        inputText.addEventListener("input", updatePreview);
+
+
+        // Function to update the preview
         function updatePreview() {
-            const markdownContent = markdownInput.value;
-            // Replace this with your own markdown-to-HTML conversion logic
-            const htmlContent = convertMarkdownToHTML(markdownContent);
-            preview.innerHTML = htmlContent;
+            const inputValue = inputText.value;
+            console.log(inputValue)
+            preview.textContent = inputValue;
         }
 
-        // Function to convert markdown to HTML (you can use a library like "marked" or "markdown-it")
-        function convertMarkdownToHTML(markdown) {
-            // Replace this with your chosen markdown-to-HTML conversion logic
-            // For example, you can use a library like "marked"
-            return marked(markdown);
-        }
 
-        // Initialize the preview on page load
-        updatePreview();
     </script>
+    -->
 
     <script>
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-        function cancel(){
-            window.location.href = {%  url 'blogs:blogs' %}
+
+        function cancel() {
+            window.location.href =
+            {%  url 'blogs:blogs' %}
         }
 
         document.getElementById('myForm').addEventListener('submit', function (event) {

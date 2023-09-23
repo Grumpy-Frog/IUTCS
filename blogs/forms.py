@@ -1,15 +1,16 @@
-from django.forms import forms
+from django import forms
 from mdeditor.fields import MDTextFormField
+from mdeditor.widgets import MDEditorWidget
 
-from blogs.models import Blog
+from blogs.models import Blogs
 
 
 class MDEditorForm(forms.Form):
     name = forms.CharField()
-    content = MDTextFormField()
+    content = forms.CharField(widget=MDEditorWidget)
 
 
 class MDEditorModleForm(forms.ModelForm):
     class Meta:
-        model = Blog
+        model = Blogs
         fields = '__all__'

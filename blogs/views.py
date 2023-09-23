@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from .models import Blogs
-
+from .forms import MDEditorForm
 
 # Create your views here.
 def index(request):
@@ -76,3 +76,9 @@ def deleteBlog(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse("blogs:blogs"))
+
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import markdown
+
