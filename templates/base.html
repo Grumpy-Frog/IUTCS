@@ -35,7 +35,7 @@
         <a class="navbar-brand mynav" href="{% url 'home' %}">IUT CS</a>
 
         <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
+
 
                 <li><a href="/executive_committee/" class="btn btn-simple">Executive Committee</a></li>
                 <li><a href="" class="btn btn-simple">Events</a></li>
@@ -47,9 +47,8 @@
                 <li><a href="/admin" class="btn btn-simple">Admin</a></li>
                 <li><a href="/admin_panel" class="btn btn-simple">Admin Panel</a></li>
 
-            {% else %}
 
-            {% endif %}
+                
         </ul>
     </div>
 </nav>
