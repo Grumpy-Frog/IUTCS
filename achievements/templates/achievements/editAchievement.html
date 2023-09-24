@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- eikhane css r js call kore -->
+
     <h1>Edit a Achievement </h1>
     <form action="{% url 'achievements:update_Achievement' pk=achievement.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}

@@ -77,3 +77,4 @@ def deleteActcity(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse("activity:activity"))
+

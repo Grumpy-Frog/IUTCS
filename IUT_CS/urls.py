@@ -31,6 +31,7 @@ urlpatterns = [
                   path('executive_committee/', views.ExecutiveCommittee.as_view(), name='executive_committee'),
                   path('about/', views.about.as_view(), name='about'),
                   path('admin_panel/', include('admin_panel.urls')),
+                  path('intra_events/', include('intra_university_event.urls')),
                   path('', views.home.as_view(), name='home'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

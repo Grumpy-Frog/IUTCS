@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% load blog_extras %}
+
+{% block content %}
+    <style>
+        /* Style to make input look like textarea */
+        .textarea-like-input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+            width: 300px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            resize: none; /* Disable textarea resizing */
+        }
+    </style>
+
+
+    <h1>Edit a Intra Uni Event </h1>
+    <form action="{% url 'intra_event:update_event' pk=intra_event.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
+        {% csrf_token %}
+        Title:<br>
+        <input name="title" value="{{ intra_event.title }}">
+        <br><br>
+        Time:
+        <p class="subtitle">{{ intra_event.time|date:"Y-m-d  H:i" }}</p>
+        <input type="datetime-local" id="time" name="time">
+        <br>
+
+        Google Form Link:
+        <input name="form_link" value="{{ intra_event.google_form_link }}">
+        <br>
+        Excel SHeet Link:
+        <input name="excel_sheet_link" value="{{ intra_event.excel_sheet_link }}">
+        <br>
+
+
+        Content:<br>
+        <textarea id="inputText" name="content" rows="15" cols="90">
+            {{ intra_event.content }}
+        </textarea>
+
+        <br><br>
+        <input type="submit" value="Accept" class="btn btn-success btn-large">
+
+        <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
+        <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
+
+
+        <!--
+        <div class="content">
+            {{ blog.content|convert_markdown|safe }}
+        </div>
+
+        <div>
+            <h2>Preview:</h2>
+            <div>
+                <textarea id="markdown" rows="15" cols="90" placeholder="Preview will appear here..."
+                          readonly></textarea>
+            </div>
+        </div>
+        -->
+
+
+    </form>
+
+    <!--
+    <script>
+        // Get references to the input field and the preview div
+        const inputText = document.getElementById("inputText");
+        const preview = document.getElementById("markdown");
+
+
+        // Add an event listener to the input field to listen for changes
+        inputText.addEventListener("input", updatePreview);
+
+
+        // Function to update the preview
+        function updatePreview() {
+            const inputValue = inputText.value;
+            console.log(inputValue)
+            preview.textContent = inputValue;
+        }
+
+
+    </script>
+    <script>
+        function update(){
+            fetch('{% url 'intra_event:update_event' pk=intra_event.pk %}')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log(data.message);
+                        }).then()
+        }
+    </script>
+    -->
+
+
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function cancel() {
+            window.location.href =
+            {%  url 'intra_event:intra_events' %}
+        }
+
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to submit this form.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, submit it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If the user confirms, submit the form
+                    document.getElementById('myForm').submit();
+                }
+            });
+        });
+
+        function deleteContent() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch('{% url 'intra_event:delete_event' pk=intra_event.pk %}')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log(data.message);
+                        })
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            }).then(function () {
+                setTimeout(function () {
+                    window.location.href =
+                    {%  url 'intra_event:intra_events' %}
+                }, 1000);
+            })
+        }
+
+    </script>
+
+
+{% endblock content %}

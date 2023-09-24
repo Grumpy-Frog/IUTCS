@@ -31,7 +31,6 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
-
 # For MARKDOWN Options
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -51,6 +50,9 @@ INSTALLED_APPS = [
     "activity",
     "sweetify",
     "event",
+    "participated_team",
+    "intra_university_event",
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -98,10 +100,9 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),  # or the hostname where your MySQL server is running
-        'PORT': '3306',      # or the port on which your MySQL server is listening
+        'PORT': '3306',  # or the port on which your MySQL server is listening
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -121,7 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -133,13 +133,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'

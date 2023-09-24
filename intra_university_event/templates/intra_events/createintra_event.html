@@ -5,14 +5,19 @@
     <br>
     <br>
     <br>
-    <h1>Create a Achievement </h1>
+    <h1>Create a Intra Uni Event </h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         Title: <input type="text" name="title" required/><br/>
-        Image: <input name="image" id="image" type="file" accept="image/*" class="form-control" required>
-        <br><br/>
+        Time:
+        <input type="datetime-local" id="activity_time" name="time" required>
+        <br>
         Content: <br/>
         <textarea cols="35" rows="8" name="content" required></textarea><br/>
+         Google Form Link: <input type="text" name="form_link" required/><br/>
         <input type="submit" value="Post"/>
+
     </form>
+
+
 {% endblock content %}
