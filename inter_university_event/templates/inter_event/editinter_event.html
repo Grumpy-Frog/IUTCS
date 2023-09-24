@@ -16,29 +16,28 @@
     </style>
 
 
-    <h1>Edit a Intra Uni Event </h1>
-    <form action="{% url 'intra_event:update_event' pk=intra_event.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
+    <h1>Edit a Inter Uni Event </h1>
+    <form action="{% url 'inter_event:update_event' pk=inter_event.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         Title:<br>
-        <input name="title" value="{{ intra_event.title }}">
+        <input name="title" value="{{ inter_event.title }}">
         <br><br>
         Time:
-        <p class="subtitle">{{ intra_event.time|date:"Y-m-d  H:i" }}</p>
+        <p class="subtitle">{{ inter_event.time|date:"Y-m-d  H:i" }}</p>
         <input type="datetime-local" id="time" name="time">
         <br>
 
         Google Form Link:
-        <input name="form_link" value="{{ intra_event.google_form_link }}">
+        <input name="form_link" value="{{ inter_event.google_form_link }}">
         <br>
         Excel SHeet Link:
         <input name="excel_sheet_link" value="{{ inter_event.excel_sheet_link }}">
         <br>
 
 
-
         Content:<br>
         <textarea id="inputText" name="content" rows="15" cols="90">
-            {{ intra_event.content }}
+            {{ inter_event.content }}
         </textarea>
 
         <br><br>
@@ -50,7 +49,7 @@
 
         <!--
         <div class="content">
-            {{ blog.content|convert_markdown|safe }}
+            {{ inter_event.content|convert_markdown|safe }}
         </div>
 
         <div>
@@ -87,7 +86,7 @@
     </script>
     <script>
         function update(){
-            fetch('{% url 'intra_event:update_event' pk=intra_event.pk %}')
+            fetch('{% url 'inter_event:update_event' pk=inter_event.pk %}')
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
@@ -109,7 +108,7 @@
 
         function cancel() {
             window.location.href =
-            {%  url 'intra_event:intra_events' %}
+            {%  url 'inter_event:inter_events' %}
         }
 
         document.getElementById('myForm').addEventListener('submit', function (event) {
@@ -151,7 +150,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch('{% url 'intra_event:delete_event' pk=intra_event.pk %}')
+                    fetch('{% url 'inter_event:delete_event' pk=inter_event.pk %}')
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
@@ -175,7 +174,7 @@
             }).then(function () {
                 setTimeout(function () {
                     window.location.href =
-                    {%  url 'intra_event:intra_events' %}
+                    {%  url 'inter_event:inter_events' %}
                 }, 1000);
             })
         }

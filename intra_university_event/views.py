@@ -28,6 +28,7 @@ def createIntra_event(request):
             intra_event.time = request.POST.get('time')
             intra_event.content = request.POST.get('content')
             intra_event.google_form_link = request.POST.get('form_link')
+            intra_event.excel_sheet_link = request.POST.get('excel_sheet_link')
 
             intra_event.save()
 
@@ -59,6 +60,7 @@ def updateIntra_event(request, *args, **kwargs):
 
     content = request.POST['content']
     form_link = request.POST['form_link']
+    sheet_link = request.POST['excel_sheet_link']
 
     intra_event.title = title
     if request.POST['time']:
@@ -69,6 +71,7 @@ def updateIntra_event(request, *args, **kwargs):
     intra_event.time = time
     intra_event.content = content
     intra_event.google_form_link = form_link
+    intra_event.excel_sheet_link = sheet_link
 
     intra_event.save()
 

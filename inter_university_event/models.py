@@ -3,7 +3,7 @@ from mdeditor.fields import MDTextField
 
 
 # Create your models here.
-class Intra_University_Event(models.Model):
+class Inter_University_Event(models.Model):
     title = models.CharField(max_length=100)
     time = models.DateTimeField(blank=True)
     content = MDTextField()

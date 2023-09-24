@@ -6,18 +6,18 @@
     <div class="box">
         <section class="hero is-primary is-medium">
             <div class="hero-body">
-                <p class="title">{{ intra_event.title }}</p>
+                <p class="title">{{ inter_event.title }}</p>
                 <p class="subtitle">{{ intra_event.time|date:"Y-m-d H:i" }}</p>
             </div>
         </section>
         <div class="content">
-            <a href="{{ intra_event.google_form_link }}"  target="_blank" rel="noopener noreferrer">
+            <a href="{{ inter_event.google_form_link }}"  target="_blank" rel="noopener noreferrer">
                 Click Here For Registration
             </a>
         </div>
 
         <div class="content">
-            {{ intra_event.content|convert_markdown|safe }}
+            {{ inter_event.content|convert_markdown|safe }}
         </div>
 
     </div>

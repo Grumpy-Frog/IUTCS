@@ -25,13 +25,15 @@ urlpatterns = [
                   path('home/', views.home.as_view(), name='home_'),
                   path('mdeditor/', include('mdeditor.urls')),
                   path('blogs/', include('blogs.urls')),
-                  path('events/', include('event.urls')),
                   path('achievements/', include('achievements.urls')),
                   path('activity/', include('activity.urls')),
                   path('executive_committee/', views.ExecutiveCommittee.as_view(), name='executive_committee'),
                   path('about/', views.about.as_view(), name='about'),
                   path('admin_panel/', include('admin_panel.urls')),
                   path('intra_events/', include('intra_university_event.urls')),
+                  path('events/', include('inter_university_event.urls')),
                   path('', views.home.as_view(), name='home'),
+                  path('events_and_participants/', views.events_and_participants.as_view(), name='events_and_participants'),
+
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% for i in inter_event reversed %}
+
+        <div class="box">
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <p class="title">{{ i.title }}</p>
+                    <p class="subtitle">{{ i.time|date:"Y-m-d H:i" }}</p>
+                </div>
+            </section>
+
+            <div class="content">
+                <a href="{{ i.id }}">Read more</a>
+            </div>
+
+            {% if user.is_authenticated %}
+                <a href='{% url 'inter_event:edit_event' pk=i.id %}'>
+                    <button type="button">Edit</button>
+                </a>
+            {% endif %}
+        </div>
+
+
+
+    {% endfor %}
+{% endblock content %}

@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     "admin_panel",
     "activity",
     "sweetify",
-    "event",
     "participated_team",
     "intra_university_event",
+    "inter_university_event",
     'bootstrap3',
 ]
 
@@ -90,6 +90,7 @@ WSGI_APPLICATION = "IUT_CS.wsgi.application"
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 LOGIN_REDIRECT_URL = 'admin_panel'
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
