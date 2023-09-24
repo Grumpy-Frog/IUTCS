@@ -1,35 +1,77 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- eikhane css r js call kore -->
-
-    <h1>Edit a Achievement </h1>
-    <form action="{% url 'achievements:update_Achievement' pk=achievement.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
+    <style>
+        /* Style to make input look like textarea */
+        .textarea-like-input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+            width: 300px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            resize: none; /* Disable textarea resizing */
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+    <br><br><br><h1>Edit Achievement </h1>
+    <form action="{% url 'achievements:update_Achievement' pk=achievement.pk %}" method="POST"
+          enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
-        Title:<br>
-        <input name="title" value="{{ achievement.title }}">
+        <section class="overview-section"></section>
+        Title:
+        <input name="title" value="{{ achievement.title }}" class="title-input">
         <br><br>
-        Image: <br>
-        <img src="{{ achievement.image }}">
-        <input name="image" id="image" type="file" accept="image/*" class="form-control" >
-        Description:<br>
-        <input name="content" value="{{ achievement.description }}">
-        <br><br>
-        <input type="submit"  value="Accept" class="btn btn-success btn-large">
+        Image:
 
-        <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
-        <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
+        <div class="overview-image">
+            <img id="imagePreview" src="{{ achievement.image }}">
+        </div>
+        <label for="image" class="file-upload">
+            <class="icon" >Choose File
+            <input name="image" id="image" type="file" accept="image/*" class="form-control" onchange="previewImage()">
+        </label>
+        <!-- <input name="image" id="image" type="file" accept="image/*" class="form-control" > -->
+        </section>
+        Description:<br>
+        <textarea name="content" class="title-input2"> {{ achievement.description }}</textarea>
+        <br>
+        <input type="submit" value="Accept" class="edit-button">
+
+        <input type="button" onclick="deleteContent()" value="delete" class="edit-button1">
+        <input type="button" onclick="cancel()" value="cancel" class="edit-button2">
 
 
     </form>
+    <script>
+        function previewImage() {
+            var input = document.getElementById('image');
+            var preview = document.getElementById('imagePreview');
 
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+    </script>
     <script>
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-        function cancel(){
-            window.location.href = {%  url 'achievements:achievements' %}
+
+        function cancel() {
+            window.location.href =
+            {%  url 'achievements:achievements' %}
         }
+
         document.getElementById('myForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
 
@@ -99,4 +141,5 @@
         }
 
     </script>
+
 {% endblock content %}

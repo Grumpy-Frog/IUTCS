@@ -3,7 +3,8 @@
 {% load blog_extras %}
 
 {% block content %}
-    <div class="box">
+<link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+    <!-- <div class="box">
         <section class="hero is-primary is-medium">
             <div class="hero-body">
                 <p class="title">{{ blog.title }}</p>
@@ -18,5 +19,29 @@
         <div class="content">
             {{ blog.content|convert_markdown|safe }}
         </div>
+    </div> -->
+    <br><br>
+<h1>Blog </h1>
+    <div class="box">
+        <section class="overview-section">
+            <div class="overview-text">
+                <h1 class="title">{{ blog.title }}</h1>
+
+
+                <p class="subtitle">{{ blog.created_at|date:"Y-m-d H:i" }}</p>
+
+
+                    <p>{{ blog.author }}</p>
+
+
+
+                    {{ blog.content|convert_markdown|safe }}
+
+
+            </div>
+            <!-- </div> -->
+        </section>
+
+
     </div>
 {% endblock %}

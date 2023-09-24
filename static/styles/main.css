@@ -84,6 +84,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .section-header {
+  
   color: #fff;
   margin-bottom: 40px;
   text-align: center;
@@ -113,6 +114,56 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .section-header span {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 100%;
+}
+
+
+
+.section1 {
+  padding: 80px 0;
+}
+
+.section-header1 {
+  margin-top: 60px;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.section-header1 .section-title1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #263238;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-header1 .section-title1:before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 80px;
+  height: 2px;
+  background: #ac0126;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.section-header1 span {
   font-size: 60px;
   color: rgba(0, 0, 0, 0.07);
   z-index: 2;
@@ -2177,7 +2228,7 @@ textarea {
   font-size: 14px;
   font-weight: 500;
   color: #263238;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   text-transform: uppercase;
   position: relative;
 }
@@ -2222,7 +2273,7 @@ footer .menu li a:hover {
 
 .contact-footer li {
   padding: 3px 0;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 .contact-footer li strong {
@@ -2313,15 +2364,15 @@ footer .menu li a:hover {
   color: #ac0126;
 }
 
-#copyright .nav-inline .nav-link {
+/* #copyright .nav-inline .nav-link {
   color: #546E7A;
   padding: 10px 0;
   margin-left: 10px;
-}
+} */
 
-#copyright .nav-inline .nav-link:hover {
+/* #copyright .nav-inline .nav-link:hover {
   color: #ac0126;
-}
+} */
 
 /* ==========================================================================
  Counter Section Style

@@ -26,25 +26,38 @@ h1 {
     color: black;
     padding-bottom: 60px;
     padding-top: 60px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: underline;
-    text-decoration-color: rgb(136, 22, 22);
-    text-decoration-thickness: 5px;
+    font-family: 'Montserrat', sans-serif;
+    /* text-decoration: underline; */
+    /* text-decoration-color: rgb(136, 22, 22); */
+    /* text-decoration-thickness: 5px; */
+}
+.hello {
+    
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    /* text-decoration: underline; */
+    /* text-decoration-color: rgb(136, 22, 22); */
+    /* text-decoration-thickness: 5px; */
 }
 h2 {
     
     padding-top: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: underline;
-    text-decoration-color: rgb(136, 22, 22);
-    text-decoration-thickness: 5px;
+    font-family: 'Montserrat', sans-serif;
+    /* text-decoration: underline; */
+    /* text-decoration-color: rgb(136, 22, 22); */
+    /* text-decoration-thickness: 5px; */
 }
 /* Style for the site title */
 .site-title {
     color: black;
     text-align: center;
     font-size: 25px;
-    font-family: 'Lucida Sans';
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 10px 0; /* Add some vertical spacing */
 }
@@ -52,7 +65,8 @@ h2 {
     color: black;
     text-align: center;
     font-size: 16px;
-    font-family: 'Lucida Sans';
+    
+    font-family: 'Montserrat','Montserrat', sans-serif;
     margin: 0;
     padding: 10px 0; /* Add some vertical spacing */
     padding-bottom: 30px;
@@ -75,7 +89,7 @@ h2 {
 
 .overview-text h2 {
     font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
 }
 
@@ -126,6 +140,89 @@ h2 {
     text-decoration: none;
 }
 .contact-person a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
+
+/* CSS in an external stylesheet or within a <style> tag in your HTML */
+.edit-button {
+    margin-top: 20px;
+    background-color: #ac012a; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove the default button border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
+    text-align: center; /* Center-align text within the button */
+    text-decoration: none; /* Remove underlines from the anchor */
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+/* Add a hover effect */
+.edit-button:hover {
+    background-color: #ac012a; /* Darker blue on hover */
+}
+.section2 {
+    padding: 80px 0;
+  }
+  
+  .section-header2 {
+    margin-top: 60px;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: left;
+    position: relative;
+  }
+  
+  .section-header2 .section-title2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #263238;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .section-header2 .section-title2:before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    width: 80px;
+    height: 2px;
+    background: #ac0126;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .section-header2 span {
+    font-size: 60px;
+    color: rgba(0, 0, 0, 0.07);
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 100%;
+  }
+  .center-aligned {
+    text-align: justify;
+}
+
+.read-more {
+    text-decoration: underline;
+    
+    /* Add any additional styling you want for the "Read more" text */
+}
+
+
+
+
+
 

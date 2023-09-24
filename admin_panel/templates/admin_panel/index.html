@@ -1,20 +1,103 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/styles/main.css">
+<link rel="stylesheet" type="text/css" href="/static/styles/admin-panel.css">
     <div class="container">
         <br>
         <br>
         <br>
         <br>
-        <a href={% url 'achievements:create_achievement' %}>
-            <button type="button">Create Achievement</button>
+
+        <!-- Blog Section -->
+<section id="blog" class="section">
+    <!-- Container Starts -->
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Admin Panel</h2>
+        <span>Edit Access</span>
+        <p class="section-subtitle">Elevate Your Control: Mastering Edits with Precision on Our Admin Panel!</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <div class="blog-item-img">
+                <img src="/media/admin_panel/achiv.jpg" alt="">
+            </div>
+            <!-- <div class="blog-item-text">
+              <h3><a href="single-post.html">Create Achivements</a></h3>
+            </div> -->
+
+            <a href={% url 'achievements:create_achievement' %}>
+                <!-- <button type="button">Create Achievement</button> -->
+                <button type="button" class="edit-button">Create Achievement</button>
+            </a>
+
+          </div>
+          <!-- Blog Item Wrapper Ends-->
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <div class="blog-item-img">
+                <img src="/media/admin_panel/acti.jpg" alt="">
+            </div>
+            <!-- <div class="blog-item-text">
+              <h3><a href="single-post.html">ICT Fest - Inter university program</a></h3>
+            </div> -->
+
+            <a href={% url 'activity:create_activity' %}>
+                <!-- <button type="button">Create Achievement</button> -->
+                <button type="button" class="edit-button">Create Activity</button>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+            <!-- Blog Item Starts -->
+            <div class="blog-item-wrapper">
+              <div class="blog-item-img">
+                  <img src="/media/admin_panel/blg.jpg" alt="">
+              </div>
+              <!-- <div class="blog-item-text">
+                <h3><a href="single-post.html">ICT Fest - Inter university program</a></h3>
+              </div> -->
+
+              <a href={% url 'blogs:create_blog' %}>
+                  <!-- <button type="button">Create Achievement</button> -->
+                  <button type="button" class="edit-button">Create Blog</button>
+              </a>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <!-- blog Section End -->
+
+
+        <!-- <a href={% url 'achievements:create_achievement' %}>
+            <button type="button" class="edit-button">Create Achievement</button>
         </a>
         <a href={% url 'activity:create_activity' %}>
-            <button type="button">Create Activity</button>
+            <button type="button" class="edit-button">Create Activity</button>
         </a>
         <a href={% url 'blogs:create_blog' %}>
-            <button type="button">Create Blog</button>
-        </a>
+            <button type="button" class="edit-button">Create Blog</button>
+        </a> -->
+
+
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <a href={% url 'intra_event:create_event' %}>
             <button type="button">Create intra university event</button>
         </a>

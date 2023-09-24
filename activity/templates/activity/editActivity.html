@@ -2,24 +2,26 @@
 
 
 {% block content %}
-    <h1>Edit a Achievement </h1>
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+<br><br><br><br>
+<h1>Edit Activity </h1><br>
     <form action="{% url 'activity:update_activity' pk=activity.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         Title:<br>
-        <input name="title" value="{{ activity.title }}">
+        <input name="title" value="{{ activity.title }}" class="title-input">
         <br><br>
         Time:
         <p class="subtitle">{{ activity.time|date:"Y-m-d  H:i" }}</p>
-        <input type="datetime-local" id="activity_time" name="time">
+        <input type="datetime-local" id="activity_time" name="time" class="title-input">
         <br>
 
         Description:<br>
-        <input name="content" value="{{ activity.description }}">
+        <textarea name="content" class="title-input2">{{ activity.description }} </textarea>
         <br><br>
-        <input type="submit" onclick="saveContent()" value="Accept" class="btn btn-success btn-large">
+        <input type="submit" onclick="saveContent()" value="Accept" class="edit-button">
 
-        <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
-        <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
+        <input type="button" onclick="deleteContent()" value="delete" class="edit-button1">
+        <input type="button" onclick="cancel()" value="cancel" class="edit-button2">
 
 
     </form>

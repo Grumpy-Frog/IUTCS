@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Create a Post </h1>
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+<br><br><br><br>
+<h1>Create Activity </h1><br>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        Title: <input type="text" name="title" required/><br/>
+        Title: <input type="text" class="title-input" name="title" required/><br/><br>
         Time:
-        <input type="datetime-local" id="activity_time" name="time" required>
-        <br>
+        <input type="datetime-local" class="title-input" id="activity_time" name="time" required>
+        <br><br>
         Content: <br/>
-        <textarea cols="35" rows="8" name="content" required></textarea><br/>
-        <input type="submit" value="Post"/>
+        <textarea cols="57" rows="8" name="content" required></textarea><br/>
+        <input type="submit" class="edit-button1" value="Post"/>
     </form>
 {% endblock content %}

@@ -1,0 +1,173 @@
+h1 {
+    text-align: left;
+    padding: 5px;
+    color: black;
+    margin-top: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(136, 22, 22);
+    text-decoration-thickness: 5px;
+    font-size: 25px;
+}
+h11 {
+    text-align: left;
+    padding: 5px;
+    color: black;
+    margin-top: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(136, 22, 22);
+    text-decoration-thickness: 5px;
+    font-size: 25px;
+}
+.overview-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px; /* Adjust the maximum width of the section as needed */
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Style the Overview Text */
+.overview-text {
+    flex: 1;
+    padding: 10px;
+}
+
+.overview-text h2 {
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.overview-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Style the Overview Image */
+.overview-image {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    width:30%;
+}
+
+.overview-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+.edit-button {
+    margin-top: 20px;
+    background-color: #ac012a; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove the default button border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
+    text-align: center; /* Center-align text within the button */
+    text-decoration: none; /* Remove underlines from the anchor */
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+    width: 100%;
+}
+.edit-button1 {
+    margin-top: 20px;
+    background-color: #030303; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove the default button border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
+    text-align: center; /* Center-align text within the button */
+    text-decoration: none; /* Remove underlines from the anchor */
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+}
+.edit-button2 {
+    margin-top: 20px;
+    background-color: #ffffff; /* Blue background color */
+    color: #000000; /* White text color */
+    border: none; /* Remove the default button border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
+    text-align: center; /* Center-align text within the button */
+    text-decoration: none; /* Remove underlines from the anchor */
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+    border: 2px solid #070707;
+}
+
+/* Add a hover effect */
+.edit-button:hover {
+    background-color: #ac012a; /* Darker blue on hover */
+}
+/* CSS for the title input field */
+.title-input {
+    width: 30%; /* Set the width to 100% of its container */
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Set the font size */
+    color: #1c1b1b; /* Set the text color */
+    
+  font-weight: bold; /* Make the text bold */
+    
+}
+
+/* Add a hover effect */
+.title-input:hover {
+    border-color: #ac102a; /* Change the border color on hover */
+}
+
+.title-input2 {
+    width: 40%; /* Set the width to 100% of its container */
+    height : 80px;
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Set the font size */
+    color: #1c1b1b; /* Set the text color */
+    
+  
+    
+}
+/* Hide the input element */
+.file-upload input[type="file"] {
+    display: none;
+}
+
+/* Style the label to look like a button */
+.file-upload {
+    background-color: #ac012a; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove the default button border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
+    text-align: center; /* Center-align text within the button */
+    text-decoration: none; /* Remove underlines from the anchor */
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    padding-bottom: 20px; /* Add padding below the input */
+    display: block;
+    width: 10%;
+    height :35px;
+}
+
+/* Style the icon/text inside the label */
+.file-upload .icon {
+    display: inline-block;
+    margin-right: 5px; /* Adjust spacing between icon and text */
+}

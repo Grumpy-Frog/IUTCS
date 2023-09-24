@@ -2,32 +2,94 @@
 
 {% block content %}
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-        {% for i in achievement %}
-
-            <div class="box">
-            <section class="hero is-primary">
-                <div class="hero-body">
-                    <p class="title">{{ i.title }}</p>
-                    <img src="{{ i.image }}">
-                    <p class="subtitle">{{ i.description }}</p>
-
-                    {% if user.is_authenticated %}
-
-                        <a href={%  url 'achievements:edit_Achievement' pk=i.id %}>
-                            <button type="button">Edit</button>
-                        </a>
-
-
-                    {% endif %}
-                </div>
-            </section>
-        </div>
-
-        {% endfor %}
+<link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+<div class="container">
+    <div class="h1">
+        <h1 class="site-title">Empowering Minds - One Byte at a Time</h1>
     </div>
+    {% for i in achievement %}
+
+    <div class="box">
+        <section class="overview-section">
+            <div class="overview-text">
+                <h2 class="title">{{ i.title }}</h2>
+
+                <p class="subtitle">{{ i.description }}<br><br><br></p>
+            </div>
+            <div class="overview-image">
+                <img src="{{ i.image }}">
+                {% if user.is_authenticated %}
+
+                <a href={% url 'achievements:edit_Achievement' pk=i.id %}>
+                    <button type="button" class="edit-button">Edit post</button>
+                </a>
+
+
+                {% endif %}
+            </div>
+        </section>
+
+
+    </div>
+
+
+    {% endfor %}
+</div>
+
+
+<footer>
+    <!-- Footer Area Start -->
+    <section class="footer-Content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <h3>IUTCS</h3>
+            <div class="textwidget">
+              <p>IUTCS continues to strive towards the development of the ICT Field and is fully dedicated with able minds to work on this goal.</p>
+            </div>
+            <ul class="footer-social">
+              <li><a class="facebook" href="https://www.facebook.com/IUTCS/"><i class="lni-facebook-filled"></i></a></li>
+              <li><a class="instagram" href="https://www.instagram.com/iutcs.official/"><i class="lni-twitter-filled"></i></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/company/iutcs/"><i class="lni-linkedin-fill"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title">Short Link</h3>
+              <ul class="menu">
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Advance Sarch</a></li>
+                <li><a href="#">Site Map</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title">Contact Us</h3>
+              <ul class="contact-footer">
+                <li>
+                  <strong>Address :</strong> <span>Islamic University of Technology, Boardbazar, Gazipur</span>
+                </li>
+                <li>
+                  <strong>Phone :</strong> <span>+880-1791-665-709</span>
+                </li>
+                <li>
+                  <strong>E-mail :</strong> <span><a href="#">arshadbakshi@iut-dhaka.edu</a></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer area End -->
+
+    <!-- Copyright Start  -->
+
+    <!-- Copyright End -->
+
+  </footer>
+
 {% endblock content %}

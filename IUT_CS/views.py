@@ -33,7 +33,7 @@ class events_and_participants(TemplateView):
         context['inter_event'] = inter_university_event
         context['intra_event'] = intra_university_event
 
-        df = pd.read_csv('https://docs.google.com/spreadsheets/d/1huzjXqhw-JQYZ7P1fkbdtd7uyYYe9NN-LeUlGS4lX6I/edit?usp=sharing')
+        #df = pd.read_csv('https://docs.google.com/spreadsheets/d/1huzjXqhw-JQYZ7P1fkbdtd7uyYYe9NN-LeUlGS4lX6I/edit?usp=sharing')
         #print(df)
 
         return context

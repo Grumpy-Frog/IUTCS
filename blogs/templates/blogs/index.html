@@ -1,31 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
+<link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+    <br><br>
+<h1>Blogs </h1>
     {% for i in blog %}
 
-        <div class="box">
-            <section class="hero is-primary">
-                <div class="hero-body">
-                    <p class="title">{{ i.title }}</p>
-                    <p class="subtitle">{{ i.author }}</p>
-                    <p class="subtitle">{{ i.created_at|date:"Y-m-d H:i" }}</p>
-                </div>
-            </section>
+    <div class="box">
+        <section class="overview-section">
+            <div class="overview-text">
+                <h2 class="title">{{ i.title }}</h2>
 
-            <div class="content">
-                <a href="{{ i.id }}">Read more</a>
-            </div>
+                <p class="subtitle" >{{ i.author }}</p>
+                <p class="subtitle">{{ i.created_at|date:"Y-m-d H:i" }}</p>
 
-            {% if user.is_authenticated %}
+                <a href="{{ i.id }}"><class="read-more">Read more</a><br>
+
+                {% if user.is_authenticated %}
+
                 <a href='{% url 'blogs:edit_blog' pk=i.id %}'>
-                    <button type="button">Edit</button>
+                    <button type="button" class="edit-button">Edit</button>
                 </a>
             {% endif %}
-        </div>
+            </div>
+            <!-- </div> -->
+        </section>
+
+
+    </div>
 
 
 
     {% endfor %}
 {% endblock content %}
+
+
+

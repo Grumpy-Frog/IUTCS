@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <div class="container">
+        {% for i in activity  reversed %}
+
+            <div class="box">
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <p class="title">{{ i.title }}</p>
+
+                    <p class="subtitle">{{ i.description }}</p>
+
+                    <p class="subtitle">{{ i.time|date:"Y-m-d  H:i" }}</p>
+
+                    {% if user.is_authenticated %}
+
+                        <a href={%  url 'activity:edit_activity' pk=i.id %}>
+                            <button type="button">Edit</button>
+                        </a>
+
+
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock content %}

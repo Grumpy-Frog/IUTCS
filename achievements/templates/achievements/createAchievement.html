@@ -1,18 +1,65 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Create a Achievement </h1>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        Title: <input type="text" name="title" required/><br/>
-        Image: <input name="image" id="image" type="file" accept="image/*" class="form-control" required>
-        <br><br/>
-        Content: <br/>
-        <textarea cols="35" rows="8" name="content" required></textarea><br/>
-        <input type="submit" value="Post"/>
-    </form>
+<style>
+    /* Style to make input look like textarea */
+    .textarea-like-input {
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 16px;
+        width: 300px;
+        /* Adjust the width as needed */
+        height: 100px;
+        /* Adjust the height as needed */
+        resize: none;
+        /* Disable textarea resizing */
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+<br><br><br><br>
+<h1>Create Achievement </h1><br>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Title: <input type="text" class="title-input" name="title" required /><br /><br>
+
+    Image:
+    <!-- <div class="overview-image">
+
+        <input name="image" id="image" type="file" accept="image/*" class="form-control" required>
+        <br><br/> -->
+    <!-- </div> -->
+
+    <div class="overview-image">
+        <img id="imagePreview" src="{{ achievement.image }}">
+    </div>
+    <label for="image" class="file-upload">
+        <class="icon">Choose File
+            <input name="image" id="image" type="file" accept="image/*" class="form-control" onchange="previewImage()">
+    </label>
+  <br>
+    Content: <br />
+    <textarea cols="60" rows="8" name="content" required></textarea><br />
+    <input type="submit" value="Post" class="edit-button1" />
+</form>
+<script>
+    function previewImage() {
+        var input = document.getElementById('image');
+        var preview = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.style.display = 'none';
+        }
+    }
+
+</script>
 {% endblock content %}
