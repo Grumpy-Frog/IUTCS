@@ -100,7 +100,7 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 
 IS_LOCALHOST = 2
 
-if IS_LOCALHOST==1:
+if IS_LOCALHOST == 1:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -111,7 +111,7 @@ if IS_LOCALHOST==1:
             'PORT': '3306',  # or the port on which your MySQL server is listening
         }
     }
-elif IS_LOCALHOST==2:
+elif IS_LOCALHOST == 2:
 
     import dj_database_url
 
@@ -140,6 +140,7 @@ elif IS_LOCALHOST==2:
 
 else:
     import dj_database_url
+
     # postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs
 
     DATABASES = {
@@ -153,8 +154,8 @@ else:
         }
     }
 
-    DATABASES["default"] = dj_database_url.parse("postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs")
-
+    DATABASES["default"] = dj_database_url.parse(
+        "postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs")
 
 '''
 DATABASES = {
