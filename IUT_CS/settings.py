@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
-ALLOWED_HOSTS = ['.vercel.app','127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -96,6 +95,48 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+IS_LOCALHOST = False
+
+if IS_LOCALHOST:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),  # or the hostname where your MySQL server is running
+            'PORT': '3306',  # or the port on which your MySQL server is listening
+        }
+    }
+else:
+
+    import dj_database_url
+
+    # postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': '',
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',  # or the hostname where your PostgreSQL server is running
+            'PORT': '',  # or the port on which your PostgreSQL server is listening
+        }
+    }
+
+    dabase_url = os.environ.get("DATABASE_URL")
+
+    DATABASES["default"] = dj_database_url.parse(dabase_url)
+
+    DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -106,6 +147,7 @@ DATABASES = {
         'PORT': '3306',  # or the port on which your MySQL server is listening
     }
 }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
