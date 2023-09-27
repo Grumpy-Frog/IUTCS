@@ -96,9 +96,9 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-IS_LOCALHOST = False
+IS_LOCALHOST = 3
 
-if IS_LOCALHOST:
+if IS_LOCALHOST==1:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -109,7 +109,7 @@ if IS_LOCALHOST:
             'PORT': '3306',  # or the port on which your MySQL server is listening
         }
     }
-else:
+elif IS_LOCALHOST==2:
 
     import dj_database_url
 
@@ -135,6 +135,24 @@ else:
     ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
     SECRET_KEY = os.environ.get("SECRET_KEY")
+
+else:
+    import dj_database_url
+    # postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': '',
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',  # or the hostname where your PostgreSQL server is running
+            'PORT': '',  # or the port on which your PostgreSQL server is listening
+        }
+    }
+
+    DATABASES["default"] = dj_database_url.parse("postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs")
+
 
 '''
 DATABASES = {
@@ -183,6 +201,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
