@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 from inter_university_event.models import Inter_University_Event
 from intra_university_event.models import Intra_University_Event
 
-import pandas as pd
 
 class HomePage(TemplateView):
     template_name = 'base.html'
@@ -20,6 +19,8 @@ class about(TemplateView):
 class home(TemplateView):
     template_name = 'home.html'
 
+class leaderboard(TemplateView):
+    template_name = 'leaderboard.html'
 
 class events_and_participants(TemplateView):
     template_name = 'events_and_participants.html'

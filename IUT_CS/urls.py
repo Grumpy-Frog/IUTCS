@@ -34,6 +34,7 @@ urlpatterns = [
                   path('events/', include('inter_university_event.urls')),
                   path('', views.home.as_view(), name='home'),
                   path('events_and_participants/', views.events_and_participants.as_view(), name='events_and_participants'),
+                  path('leaderboard/', views.leaderboard.as_view(), name='leaderboard'),
 
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
