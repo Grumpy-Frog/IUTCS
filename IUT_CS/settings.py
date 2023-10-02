@@ -152,8 +152,7 @@ else:
         }
     }
 
-    DATABASES["default"] = dj_database_url.parse(
-        db_link_here")
+    DATABASES["default"] = dj_database_url.parse("db_link_here")
 
 '''
 DATABASES = {
