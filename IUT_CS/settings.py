@@ -115,7 +115,8 @@ elif IS_LOCALHOST == 2:
 
     import dj_database_url
 
-    
+    # postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -140,7 +141,8 @@ elif IS_LOCALHOST == 2:
 else:
     import dj_database_url
 
-    
+    # postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -152,7 +154,8 @@ else:
         }
     }
 
-    DATABASES["default"] = dj_database_url.parse("db_link_here")
+    DATABASES["default"] = dj_database_url.parse(
+        "postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs")
 
 '''
 DATABASES = {
@@ -201,7 +204,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = BASE_DIR / 'static'
+if IS_LOCALHOST==2:
+    STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
