@@ -111,7 +111,7 @@ if IS_LOCALHOST == 1:
             'PORT': '3306',  # or the port on which your MySQL server is listening
         }
     }
-elif IS_LOCALHOST == 1:
+elif IS_LOCALHOST == 2:
 
     import dj_database_url
 
