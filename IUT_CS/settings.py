@@ -98,7 +98,7 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-IS_LOCALHOST = 2
+IS_LOCALHOST = 3
 
 if IS_LOCALHOST == 1:
     DATABASES = {
@@ -111,7 +111,7 @@ if IS_LOCALHOST == 1:
             'PORT': '3306',  # or the port on which your MySQL server is listening
         }
     }
-elif IS_LOCALHOST == 2:
+elif IS_LOCALHOST == 1:
 
     import dj_database_url
 

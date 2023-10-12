@@ -94,9 +94,6 @@
     <div class="container">
         <br>
         <br>
-        <br>
-        <br>
-        <br>
 
         <a href={% url 'intra_event:create_event' %}>
             <button type="button">Create intra university event</button>
@@ -108,6 +105,10 @@
         <a href={% url 'events_and_participants' %}>
             <button type="button">View Event Participants</button>
         </a>
+        <a href={% url 'logout' %}>
+            <button type="button">Logout</button>
+        </a>
+
 
     </div>
 {% endblock content %}

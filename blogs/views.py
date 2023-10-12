@@ -49,7 +49,7 @@ def createBlog(request):
 
     if request.method == 'POST':
         form = BlogForm(request.POST)
-        print("CHECK")
+
         if form.is_valid():
             form.save()
 

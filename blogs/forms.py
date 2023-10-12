@@ -8,8 +8,8 @@ class BlogForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['title'].widget.attrs['class'] = 'title-input'
-        self.fields['author'].widget.attrs['class'] = 'title-input'
+        self.fields['title'].widget.attrs['class'] = 'form-control'
+        self.fields['author'].widget.attrs['class'] = 'form-control'
 
 
     class Meta:

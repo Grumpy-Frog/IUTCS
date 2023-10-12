@@ -9,6 +9,6 @@ urlpatterns = [
     # Login and Logout
     path('', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='admin_panel/login.html'), name='login'),
     path('all/',views.AdminPanel,name='admin_panel'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 
 ]

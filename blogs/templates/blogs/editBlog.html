@@ -16,48 +16,18 @@
     </style>
 
 
-<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
-<br><br><br><br>
-<h1>Edit Blog </h1><br>
+    <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+    <br><br><br>
+    <h1>Edit Blog </h1>
     <form action="{% url 'blogs:update_blog' pk=blog.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         {{ form.media }}
-            {{ form.as_p }}
-        <!--
-        Title:<br>
-        <input name="title" value="{{ blog.title }}" class="title-input">
-        <br><br>
-        Author:<br>
-        <input name="author" value="{{ blog.author }}" class="title-input">
-        <br><br>
+        {{ form.as_p }}
 
-
-        Content:<br><br>
-        <textarea id="inputText" name="content" rows="12" cols="60">
-            {{ blog.content }}
-        </textarea>
-        -->
-
-        <br>
         <input type="submit" value="Accept" class="edit-button">
 
         <input type="button" onclick="deleteContent()" value="delete" class="edit-button1">
         <input type="button" onclick="cancel()" value="cancel" class="edit-button2">
-
-
-        <!--
-        <div class="content">
-            {{ blog.content|convert_markdown|safe }}
-        </div>
-
-        <div>
-            <h2>Preview:</h2>
-            <div>
-                <textarea id="markdown" rows="15" cols="90" placeholder="Preview will appear here..."
-                          readonly></textarea>
-            </div>
-        </div>
-        -->
 
 
     </form>

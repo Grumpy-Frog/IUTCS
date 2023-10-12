@@ -2,8 +2,8 @@
 {% load bootstrap3 %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
-<br><br><br><br>
-<h1>Create a blog </h1><br>
+<br><br><br>
+<h1>Create a blog </h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
             {{  form.media }}

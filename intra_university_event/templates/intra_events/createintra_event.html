@@ -1,27 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
     <br>
     <br>
     <br>
-    <br>
+
     <h1>Create a Intra Uni Event </h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        Title: <input type="text" name="title" required/><br/>
+
+
+        Title: <input type="text" class="title-input" name="title" required/><br/><br>
+
+
         Time:
         <input type="datetime-local" id="activity_time" name="time" required>
         <br>
-        Content: <br/>
-        <textarea cols="35" rows="8" name="content" required></textarea><br/>
+
         Google Form Link: <input type="text" name="form_link" required/><br/>
         Excel SHeet Link:
         <input name="excel_sheet_link" required>
+
+        <br>
+        Image:
+        <div class="overview-image">
+            <img id="imagePreview" src="{{ intra_event.image }}">
+        </div>
+
+        <label for="image" class="file-upload">
+            <class
+            ="icon">Choose File
+            <input name="image" id="image" type="file" accept="image/*" class="form-control" onchange="previewImage()" required>
+        </label>
+
+        {{ form.media }}
+        {{ form.as_p }}
+
+
         <br>
 
-        <input type="submit" value="Post"/>
+        <input type="submit" value="Post" class="edit-button1"/>
 
     </form>
 
+
+    <script>
+        function previewImage() {
+            var input = document.getElementById('image');
+            var preview = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+    </script>
 
 {% endblock content %}
