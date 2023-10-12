@@ -22,6 +22,9 @@ class home(TemplateView):
 class leaderboard(TemplateView):
     template_name = 'leaderboard.html'
 
+class events(TemplateView):
+    template_name = 'events.html'
+
 class events_and_participants(TemplateView):
     template_name = 'events_and_participants.html'
 

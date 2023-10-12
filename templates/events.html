@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/styles/main.css">
+<link rel="stylesheet" type="text/css" href="/static/styles/admin-panel.css">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Blog Section -->
+<section id="blog" class="section">
+    <!-- Container Starts -->
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Events</h2>
+        <span>Edit Access</span>
+        <p class="section-subtitle">Prove your worth on our events</p>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <div class="blog-item-img">
+                <img src="/media/events/coderush.png" alt="">
+            </div>
+            <!-- <div class="blog-item-text">
+              <h3><a href="single-post.html">ICT Fest - Inter university program</a></h3>
+            </div> -->
+
+            <a href={% url 'intra_event:intra_events' %}>
+                <!-- <button type="button">Create Achievement</button> -->
+                <button type="button" class="edit-button">Intra University</button>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+            <!-- Blog Item Starts -->
+            <div class="blog-item-wrapper">
+              <div class="blog-item-img">
+                  <img src="/media/events/ict fest.png" alt="">
+              </div>
+              <!-- <div class="blog-item-text">
+                <h3><a href="single-post.html">ICT Fest - Inter university program</a></h3>
+              </div> -->
+
+              <a href={% url 'inter_event:inter_events' %}>
+                  <!-- <button type="button">Create Achievement</button> -->
+                  <button type="button" class="edit-button">Inter University</button>
+              </a>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+    </div>
+{% endblock content %}
