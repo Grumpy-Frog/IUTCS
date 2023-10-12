@@ -21,6 +21,9 @@
 <h1>Edit Blog </h1><br>
     <form action="{% url 'blogs:update_blog' pk=blog.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
+        {{ form.media }}
+            {{ form.as_p }}
+        <!--
         Title:<br>
         <input name="title" value="{{ blog.title }}" class="title-input">
         <br><br>
@@ -33,6 +36,7 @@
         <textarea id="inputText" name="content" rows="12" cols="60">
             {{ blog.content }}
         </textarea>
+        -->
 
         <br>
         <input type="submit" value="Accept" class="edit-button">

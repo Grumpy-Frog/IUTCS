@@ -4,8 +4,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from .models import Blogs
-from .forms import MDEditorForm
-
+from .forms import BlogForm
 # Create your views here.
 def index(request):
     blog = Blogs.objects.all()
@@ -21,8 +20,13 @@ def detail(request, pk):
     return render(request, 'blogs/detail.html', context)
 
 
+'''
 def createBlog(request):
+    form = BlogForm
+
     if request.method == 'POST':
+
+
         if request.POST.get('title') and request.POST.get('content'):
             blog = Blogs()
             blog.title = request.POST.get('title')
@@ -34,9 +38,42 @@ def createBlog(request):
             return redirect("blogs:blogs")
 
     else:
+        
         return render(request, 'blogs/createBlog.html')
 
+'''
 
+
+def createBlog(request):
+    form = BlogForm
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        print("CHECK")
+        if form.is_valid():
+            form.save()
+
+        return redirect("blogs:blogs")
+
+    context = {'form': form}
+
+    return render(request, 'blogs/createBlog.html',context)
+
+
+class editBlog(TemplateView):
+    template_name = 'blogs/editBlog.html'
+
+    def get_context_data(self, *args, **kwargs):
+        blog = Blogs.objects.get(pk=self.kwargs.get('pk'))
+        context = super().get_context_data(*args, **kwargs)
+
+        context['form'] = BlogForm(instance=blog)
+        context['blog'] = blog
+
+        return context
+
+
+'''
 class editBlog(TemplateView):
     template_name = 'blogs/editBlog.html'
 
@@ -47,6 +84,7 @@ class editBlog(TemplateView):
         context['blog'] = blog
 
         return context
+'''
 
 
 def updateBlog(request, *args, **kwargs):
@@ -67,6 +105,7 @@ def updateBlog(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse("blogs:blogs"))
+
 
 
 def deleteBlog(request, *args, **kwargs):
