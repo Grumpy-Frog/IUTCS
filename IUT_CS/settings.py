@@ -98,7 +98,7 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-IS_LOCALHOST = 2
+IS_LOCALHOST = 1
 
 if IS_LOCALHOST == 1:
     DATABASES = {
