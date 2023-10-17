@@ -7,11 +7,18 @@
         <section class="hero is-primary is-medium">
             <div class="hero-body">
                 <p class="title">{{ inter_event.title }}</p>
-                <p class="subtitle">{{ intra_event.time|date:"Y-m-d H:i" }}</p>
+                <p class="subtitle">{{ inter_event.time|date:"Y-m-d H:i" }}</p>
+                <br>
+                Maximum Member:
+                <p class="subtitle">{{ inter_event.maximum_member }}</p>
+
+                <div class="content">
+                    <img src="{{ inter_event.image }}">
+                </div>
             </div>
         </section>
         <div class="content">
-            <a href="{{ inter_event.google_form_link }}"  target="_blank" rel="noopener noreferrer">
+            <a href="#"  target="_blank" rel="noopener noreferrer">
                 Click Here For Registration
             </a>
         </div>

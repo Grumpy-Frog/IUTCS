@@ -13,11 +13,18 @@
                 <div class="hero-body">
                     <p class="title">{{ i.title }}</p>
                     <p class="subtitle">{{ i.time|date:"Y-m-d H:i" }}</p>
+                    <br>
+                    Maximum Member:
+                    <p class="subtitle">{{ i.maximum_member }}</p>
                 </div>
             </section>
 
             <div class="content">
                 <a href="{{ i.id }}">Read more</a>
+                <a href='{% url 'inter_event:team_registration' pk=i.id %}'>
+                    <button type="button">click here for registration</button>
+                </a>
+                <img src="{{ i.image }}">
             </div>
 
             {% if user.is_authenticated %}

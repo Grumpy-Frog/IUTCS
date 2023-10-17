@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>Intra Events and Participants</h1>
+            {% for i in intra_event reversed %}
+            <div class="box">
+                <section class="hero is-primary">
+                    <div class="hero-body">
+                        <p class="title">{{ i.title }}</p>
+                        <iframe src="{{ i.excel_sheet_link }}"
+                                width="1200" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...>
+                        </iframe>
+
+                    </div>
+                </section>
+
+            </div>
+
+        {% endfor %}
+        
+
+</div>
+
+
+{% endblock content %}

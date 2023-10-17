@@ -3,6 +3,8 @@
 {% load blog_extras %}
 
 {% block content %}
+
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
     <style>
         /* Style to make input look like textarea */
         .textarea-like-input {
@@ -15,7 +17,9 @@
         }
     </style>
 
-
+    <br>
+    <br>
+    <br>
     <h1>Edit a Inter Uni Event </h1>
     <form action="{% url 'inter_event:update_event' pk=inter_event.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
@@ -26,19 +30,27 @@
         <p class="subtitle">{{ inter_event.time|date:"Y-m-d  H:i" }}</p>
         <input type="datetime-local" id="time" name="time">
         <br>
-
-        Google Form Link:
-        <input name="form_link" value="{{ inter_event.google_form_link }}">
         <br>
-        Excel SHeet Link:
-        <input name="excel_sheet_link" value="{{ inter_event.excel_sheet_link }}">
+        Maximum Number of Member:
+        <p class="subtitle">{{ inter_event.maximum_member }}</p>
+        <input type="number" id="maximum_member" name="maximum_member">
+
+
         <br>
+        Image:
+        <div class="overview-image">
+            <img id="imagePreview" src="{{ intra_event.image }}" >
+        </div>
 
+        <label for="image" class="file-upload">
+            <class
+            ="icon">Choose File
+            <input name="image" id="image" type="file" accept="image/*" class="form-control" onchange="previewImage()" required>
+        </label>
 
-        Content:<br>
-        <textarea id="inputText" name="content" rows="15" cols="90">
-            {{ inter_event.content }}
-        </textarea>
+        {{ form.media }}
+        {{ form.as_p }}
+
 
         <br><br>
         <input type="submit" value="Accept" class="btn btn-success btn-large">
@@ -47,59 +59,30 @@
         <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
 
 
-        <!--
-        <div class="content">
-            {{ inter_event.content|convert_markdown|safe }}
-        </div>
-
-        <div>
-            <h2>Preview:</h2>
-            <div>
-                <textarea id="markdown" rows="15" cols="90" placeholder="Preview will appear here..."
-                          readonly></textarea>
-            </div>
-        </div>
-        -->
-
-
     </form>
+    
 
-    <!--
     <script>
-        // Get references to the input field and the preview div
-        const inputText = document.getElementById("inputText");
-        const preview = document.getElementById("markdown");
+        function previewImage() {
+            var input = document.getElementById('image');
+            var preview = document.getElementById('imagePreview');
 
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-        // Add an event listener to the input field to listen for changes
-        inputText.addEventListener("input", updatePreview);
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
 
-
-        // Function to update the preview
-        function updatePreview() {
-            const inputValue = inputText.value;
-            console.log(inputValue)
-            preview.textContent = inputValue;
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+            }
         }
 
-
     </script>
-    <script>
-        function update(){
-            fetch('{% url 'inter_event:update_event' pk=inter_event.pk %}')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log(data.message);
-                        }).then()
-        }
-    </script>
-    -->
-
+    
 
     <script>
         function sleep(ms) {

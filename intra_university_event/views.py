@@ -55,7 +55,7 @@ def createIntra_event(request):
                 intra_event = Intra_University_Event()
                 intra_event.title = request.POST.get('title')
                 intra_event.time = request.POST.get('time')
-                intra_event.google_form_link = request.POST.get('google_form_link')
+                intra_event.google_form_link = request.POST.get('form_link')
                 intra_event.excel_sheet_link = request.POST.get('excel_sheet_link')
 
                 dir = "/media/"

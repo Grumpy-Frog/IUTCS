@@ -34,7 +34,8 @@ urlpatterns = [
                   path('inter_events/', include('inter_university_event.urls')),
                   path('events/', views.events.as_view(), name='events'),
                   path('', views.home.as_view(), name='home'),
-                  path('events_and_participants/', views.events_and_participants.as_view(), name='events_and_participants'),
+                  path('inter_events_and_participants/', views.inter_event_participants.as_view(), name='inter_events_and_participants'),
+                  path('intra_events_and_participants/', views.intra_event_participants.as_view(), name='intra_events_and_participants'),
                   path('leaderboard/', views.leaderboard.as_view(), name='leaderboard'),
 
 

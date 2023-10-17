@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% load times %}
+
+{% block content %}
+
+input, select, textarea{
+    color: #ff0000;
+}
+
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+<br>
+<br>
+<br>
+<h1>Team Registration</h1>
+
+<form action="" method="POST" enctype="multipart/form-data" id="myForm">
+    {% csrf_token %}
+
+    <div class="box">
+        <section class="">
+            Team Name: <input type="text" name="team_name" required/><br/>
+        </section>
+    </div>
+    {% for i in  inter_event.maximum_member|times %}
+    <div class="box">
+        <section class="">
+            
+            {% if i is 0 %}
+            Team Leader Information: 
+            <br>
+            Name*:
+            <input type="text" name="member_{{ i }}_name" required/><br/>
+            Email*:
+            <input type="email" name="member_{{ i }}_email" required/><br/>
+            Contact Number*:
+            <input type="tel" name="member_{{ i }}_phone" required/><br/>
+            Institute*:
+            <input type="text" name="member_{{ i }}_institute" required/><br/>
+
+            
+            {% else %}
+            Member {{ i|add:1 }} Information: 
+            <br>
+            Name:
+            <input type="text" name="member_{{ i }}_name" /><br/>
+            Email:
+            <input type="email" name="member_{{ i }}_email" /><br/>
+            Contact Number:
+            <input type="tel" name="member_{{ i }}_phone" /><br/>
+            Institute:
+            <input type="text" name="member_{{ i }}_institute" /><br/>
+            {% endif %}
+            
+        </section>
+    </div>
+
+    
+    {% endfor %}
+
+    <h6>Check before submit</h6>
+    <input type="checkbox" id="myCheckbox" name="confirm" required>
+    <br>
+        <input type="submit" value="Submit" />
+</form>
+
+<script>
+
+document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to submit this form.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, submit it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If the user confirms, submit the form
+                    document.getElementById('myForm').submit();
+                }
+            });
+        });
+</script>
+
+    
+{% endblock %}

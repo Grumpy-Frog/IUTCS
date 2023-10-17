@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
 
-        {% for i in inter_event reversed %}
+    <!--
+            {% for i in intra_event reversed %}
             <div class="box">
                 <section class="hero is-primary">
                     <div class="hero-body">
@@ -22,25 +23,40 @@
             </div>
 
         {% endfor %}
+        -->
+
+        <h1>Inter Events and Participants</h1>
+    {% for i in inter_event reversed %}
+    <div class="box">
+        <section class="">
+                <h1 class="title">Event Name: {{ i.title }}</h1>
+                {% for j in teams %}
+
+                    {% if j.event == i %}
+                    <div class="box">
+                        <p class="title">Team Name: {{ j.name }}</p>
+                    
+                        {% for k in members %}
+
+                            {% if k.team == j %}
+                            <div class="box">
+                                <p>Name: {{ k.name }}</p>
+                                <p>Email: {{ k.email }}</p>
+                                <p>Contact No: {{ k.phone }}</p>
+                                <p>Institute: {{ k.institute }}</p>
+                            </div>
+                            {% endif %}
 
 
-        {% for i in intra_event reversed %}
-            <div class="box">
-                <section class="hero is-primary">
-                    <div class="hero-body">
-                        <p class="title">{{ i.title }}</p>
-                        <iframe src="{{ i.excel_sheet_link }}"
-                                width="1200" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...>
-                        </iframe>
-
+                        {% endfor %}
                     </div>
-                </section>
-
-            </div>
-
-        {% endfor %}
-
+                    {% endif %}
+                {% endfor %}
+        </section>
     </div>
+    {% endfor %}
+
+</div>
 
 
 {% endblock content %}

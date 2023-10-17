@@ -102,9 +102,12 @@
         <a href={% url 'inter_event:create_event' %}>
             <button type="button">Create Inter university event</button>
         </a>
-        <a href={% url 'events_and_participants' %}>
-            <button type="button">View Event Participants</button>
+        <a href={% url 'inter_events_and_participants' %}>
+            <button type="button">View Inter Event Participants</button>
         </a>
+        <a href={% url 'intra_events_and_participants' %}>
+          <button type="button">View Intra Event Participants</button>
+      </a>
         <a href={% url 'logout' %}>
             <button type="button">Logout</button>
         </a>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load times %}
+
+{% block content %}
+
+
+<link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
+<br>
+<br>
+<br>
+<h1>Team Registration</h1>
+
+
+<div class="box">
+        <section class="">
+            <p>Team Name: {{ team.name }}</p>
+        </section>
+</div>
+    {% for i in  members %}
+    
+        {% if forloop.first %}
+        <div class="box">
+            <section class="">
+                <p>Team Leader Information</p>
+                <p>Name: {{ i.name }}</p>
+                <p>Email: {{ i.email }}</p>
+                <p>Contact No: {{ i.phone }}</p>
+                <p>Institute: {{ i.institute }}</p>
+            </section>
+        </div>
+        {% else %}
+        <div class="box">
+            <section class="">
+                <p>Name: {{ i.name }}</p>
+                <p>Email: {{ i.email }}</p>
+                <p>Contact No: {{ i.phone }}</p>
+                <p>Institute: {{ i.institute }}</p>
+            </section>
+        </div>
+
+        {% endif %}
+    
+    {% endfor %}
+
+<form action="" enctype="multipart/form-data" id="myForm">
+    {% csrf_token %}
+    Confirm:
+    <input type="checkbox" id="myCheckbox" name="confirm">
+    <br>
+        <input type="submit" value="Submit" />
+</form>
+
+
+    
+{% endblock %}
