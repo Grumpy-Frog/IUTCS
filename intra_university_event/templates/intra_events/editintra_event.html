@@ -24,24 +24,24 @@
 
 
         Title:<br>
-        <input name="title" value="{{ intra_event.title }}">
+        <input name="title" value="{{ intra_event.title }}" class="title-input">
         <br><br>
-        Time:
-        <p class="subtitle">{{ intra_event.time|date:"Y-m-d  H:i" }}</p>
-        <input type="datetime-local" id="time" name="time">
-        <br>
+        Time:<br>
+       
+        <input type="datetime-local" id="time" name="time" class="title-input">
+        <br><br>
 
-        Google Form Link:
-        <input name="google_form_link" value="{{ intra_event.google_form_link }}">
-        <br>
+        Google Form Link:<br>
+        <input name="google_form_link" class="title-input" value="{{ intra_event.google_form_link }}">
+        <br><br>
 
-        Excel Sheet Link:
-        <input name="excel_sheet_link" value="{{ intra_event.excel_sheet_link }}">
+        Excel Sheet Link:<br>
+        <input name="excel_sheet_link" class="title-input" value="{{ intra_event.excel_sheet_link }}">
 
-        <br>
-        Image:
+        <br><br>
+        Image:<br>
         <div class="overview-image">
-            <img id="imagePreview" src="{{ intra_event.image }}" value="{{ intra_event.image }}">
+            <img id="imagePreview" src="{{ intra_event.image }}" >
         </div>
 
         <label for="image" class="file-upload">

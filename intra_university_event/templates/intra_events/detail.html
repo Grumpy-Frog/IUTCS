@@ -3,22 +3,42 @@
 {% load blog_extras %}
 
 {% block content %}
-    <div class="box">
-        <section class="hero is-primary is-medium">
-            <div class="hero-body">
-                <p class="title">{{ intra_event.title }}</p>
-                <p class="subtitle">{{ intra_event.time|date:"Y-m-d H:i" }}</p>
+<link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+
+        <div class="box">
+            <br><br>
+        <section class="overview-section">
+            <div class="overview-text">
+                <h2 class="title">{{ intra_event.title }}</h2>
+
+                <p class="subtitle">{{ intra_event.time|date:"Y-m-d H:i" }}<br><br></p>
+                
+                <a href="{{ intra_event.google_form_link }}"  target="_blank" rel="noopener noreferrer" >
+                  <u><b>  Click Here For Registration</b></u>
+                </a>
             </div>
+            
+
+            <div class="overview-image">
+                <img src="{{ intra_event.image }}">            
+            </div>
+            
         </section>
-        <div class="content">
-            <a href="{{ intra_event.google_form_link }}"  target="_blank" rel="noopener noreferrer">
-                Click Here For Registration
-            </a>
         </div>
 
-        <div class="content">
-            {{ intra_event.content|convert_markdown|safe }}
+        <div class=""box>
+            
+               
+                    <p>
+                        {{ intra_event.content|convert_markdown|safe }}<br>
+                    </p>
+
         </div>
 
-    </div>
-{% endblock %}
+
+   
+{% endblock %} 
+
+
+
+

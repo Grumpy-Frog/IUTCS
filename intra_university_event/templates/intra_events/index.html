@@ -5,31 +5,29 @@
     <br>
     <br>
     <br>
-
-    {% for i in intra_event reversed %}
-
-
-        <div class="box">
-            <section class="hero is-primary">
-                <div class="hero-body">
-                    <p class="title">{{ i.title }}</p>
-                    <p class="subtitle">{{ i.time|date:"Y-m-d H:i" }}</p>
-                </div>
-            </section>
-
-            <div class="content">
+    <link rel="stylesheet" type="text/css" href="/static/styles/demm.css">
+    
+    <div class="h1">
+        <h1 class="site-title">Intra University Events</h1>
+    </div>
+   
+    <div class="card-container">
+        {% for i in intra_event reversed %}
+        <div class="card">
+            <img src="{{ i.image }}" alt="Card Image">
+            <div class="card-content">
+                <h2 class="title">{{ i.title }}</h2>
+                <p class="subtitle">{{ i.time|date:"Y-m-d H:i" }}</p>
                 <a href="{{ i.id }}">Read more</a>
-                <img src="{{ i.image }}">
             </div>
-
             {% if user.is_authenticated %}
-                <a href='{% url 'intra_event:edit_event' pk=i.id %}'>
-                    <button type="button">Edit</button>
-                </a>
+            <a href={% url 'intra_event:edit_event' pk=i.id %}>
+                <button type="button" class="edit-button">Edit post</button><br><br>
+            </a>
             {% endif %}
         </div>
-
-
-
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock content %}
+
+
