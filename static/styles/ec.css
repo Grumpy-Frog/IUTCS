@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -11,6 +11,9 @@ header {
     text-align: center;
     padding: 20px 0;
     padding-bottom: 120px;
+}
+.section-header {
+    margin: 20px 0; /* Adjust as needed for spacing */
 }
 
 h1 {
@@ -26,35 +29,32 @@ h1 {
 
 .im-row {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 30px;
+    flex-wrap: wrap;
+    margin: -20px; /* Negative margin to reduce space between image cards */
 }
 
 .image-card {
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
-    width: 20%; /* Set the width to 20% */
-    max-width: calc(25% - 20px); /* To fit 4 images in a row with spacing */
-    text-align: center;
-    margin: 0 10px; /* Add spacing between images */
+    flex: 0 0 calc(25% - 10px); /* Four cards per row with spacing */
+    margin: 5px; /* Adjust as needed for spacing */
+    text-align: center; /* Center text within the image card */
+    padding: 10px; /* Add padding for spacing within the image card */
+    background-color: #f5f5f5; /* Add a background color for visual separation */
+    border-radius: 10px; /* Add rounded corners for image cards */
 }
 
 .image-card img {
     max-width: 100%;
     height: auto;
-    display: block; /* Center the image horizontally */
-    margin: 0 auto; /* Center the image horizontally */
+    display: block;
+    margin: 0 auto;
+    max-height: 200px; /* Adjust the maximum height for the images */
 }
 
 .image-card p {
     margin: 10px 0;
     font-weight: bold;
     color: red;
+    font-size: 14px; /* Adjust the font size */
 }
 .center-text {
     font-size: 7px;
@@ -66,8 +66,16 @@ h1 {
     color: black;
     padding-bottom: 60px;
     padding-top: 60px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: underline;
     text-decoration-color: rgb(136, 22, 22);
     text-decoration-thickness: 5px;
+}
+@media (max-width: 768px) {
+    .image-card {
+        margin: 5px; /* Adjust this value for mobile */
+    }
+    .im-row, .image-row {
+        padding: 5px; /* Adjust this value for mobile */
+    }
 }
