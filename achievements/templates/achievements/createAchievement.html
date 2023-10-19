@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
 <br><br><br><br>
 <h1>Create Achievement </h1><br>
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data" id="myForm">
     {% csrf_token %}
 
     Title: <input type="text" class="title-input" name="title" required /><br /><br>
@@ -62,4 +62,27 @@
     }
 
 </script>
+
+
+<script>
+
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+    
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'You are about to submit this form.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, submit it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If the user confirms, submit the form
+                        document.getElementById('myForm').submit();
+                    }
+                });
+            });
+    </script>
 {% endblock content %}
