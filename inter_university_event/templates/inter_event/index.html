@@ -5,36 +5,48 @@
     <br>
     <br>
     <br>
-
+    <link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+    <div class="h1" style="text-align: center;">
+      <h1 class="site-title">Inter University Events</h1>
+  </div>
     {% for i in inter_event reversed %}
 
         <div class="box">
-            <section class="hero is-primary">
-                <div class="hero-body">
-                    <p class="title">{{ i.title }}</p>
+            <section class="overview-section">
+                <div class="overview-text">
+                    <h2 class="title">{{ i.title }}</h2>
                     <p class="subtitle">{{ i.time|date:"Y-m-d H:i" }}</p>
                     <br>
                     Maximum Member:
-                    <p class="subtitle">{{ i.maximum_member }}</p>
+                    <h2 class="subtitle">{{ i.maximum_member }}</h2>
+                    <a href="{{ i.id }}"><b><u>Read more</u></b></a><br>
+                <a href='{% url 'inter_event:team_registration' pk=i.id %}'>
+                    <button type="button" class="edit-button">click here for registration</button>
+                </a>
                 </div>
+                <div class="overview-image">
+                    <img src="{{ i.image }}">
+                    {% if user.is_authenticated %}
+    
+                    <a href='{% url 'inter_event:edit_event' pk=i.id %}'>
+                        <button type="button" class="edit-button">Edit post</button>
+                    </a>
+    
+    
+                    {% endif %}
+                </div>
+                
             </section>
 
-            <div class="content">
-                <a href="{{ i.id }}">Read more</a>
-                <a href='{% url 'inter_event:team_registration' pk=i.id %}'>
-                    <button type="button">click here for registration</button>
-                </a>
-                <img src="{{ i.image }}">
-            </div>
-
-            {% if user.is_authenticated %}
-                <a href='{% url 'inter_event:edit_event' pk=i.id %}'>
-                    <button type="button">Edit</button>
-                </a>
-            {% endif %}
+            
         </div>
-
-
+          
 
     {% endfor %}
+
+    
 {% endblock content %}
+
+
+
+

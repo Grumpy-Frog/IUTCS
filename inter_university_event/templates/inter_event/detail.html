@@ -3,32 +3,36 @@
 {% load blog_extras %}
 
 {% block content %}
+<br>
+    <br>
+    <br>
+    <br>
+    <link rel="stylesheet" type="text/css" href="/static/styles/about.css">
     <div class="box">
-        <section class="hero is-primary is-medium">
-            <div class="hero-body">
-                <p class="title">{{ inter_event.title }}</p>
+        <section class="overview-section">
+            <div class="overview-text">
+                <h2 class="title">{{ inter_event.title }}</h2>
                 <p class="subtitle">{{ inter_event.time|date:"Y-m-d H:i" }}</p>
                 <br>
                 Maximum Member:
-                <p class="subtitle">{{ inter_event.maximum_member }}</p>
-
-                <div class="content">
-                    <img src="{{ inter_event.image }}">
-                </div>
-            </div>
-        </section>
-        <div class="content">
-            <a href='{% url 'inter_event:team_registration' pk=inter_event.id %}'>
-                <button type="button">click here for registration</button>
+                <h2 class="subtitle">{{ inter_event.maximum_member }}</h2>
+                <a href='{% url 'inter_event:team_registration' pk=inter_event.id %}'>
+                <button type="button" class="edit-button">click here for registration</button>
             </a>
-        </div>
+            </div>
+            <div class="overview-image">
+                <img src="{{ inter_event.image }}">
+            </div>
+            
+        
+
         
     </div>
-
         <div class="box">
-            <div class="content">
+            
                 {{ inter_event.content|convert_markdown|safe }}
             </div>
-        </div>
+        
+    </section>
 
 {% endblock %}

@@ -23,22 +23,23 @@
     <h1>Edit a Inter Uni Event </h1>
     <form action="{% url 'inter_event:update_event' pk=inter_event.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
-        Title:<br>
-        <input name="title" value="{{ inter_event.title }}">
+        <b>Title:</b><br>
+        <input name="title" class="title-input" value="{{ inter_event.title }}">
         <br><br>
-        Time:
+    <b>Time:</b><br>
         <p class="subtitle">{{ inter_event.time|date:"Y-m-d  H:i" }}</p>
-        <input type="datetime-local" id="time" name="time">
+        <input type="datetime-local" class="title-input" id="time" name="time">
         <br>
         <br>
-        Maximum Number of Member:
-        <input type="number" id="maximum_member" name="maximum_member" value="{{ inter_event.maximum_member }}">
+    <b>Maximum Number of Member:</b>
+    <br>
+        <input type="number" class="title-input" id="maximum_member" name="maximum_member" value="{{ inter_event.maximum_member }}">
 
 
         <br>
-        Image:
+        <b>Image:</b><br>
         <div class="overview-image">
-            <img id="imagePreview" src="{{ intra_event.image }}" >
+            <img id="imagePreview" src="{{ inter_event.image }}" >
         </div>
 
         <label for="image" class="file-upload">
@@ -52,10 +53,10 @@
 
 
         <br><br>
-        <input type="submit" value="Accept" class="btn btn-success btn-large">
+        <input type="submit" value="Accept" class="edit-button">
 
-        <input type="button" onclick="deleteContent()" value="delete" class="btn btn-simple">
-        <input type="button" onclick="cancel()" value="cancel" class="btn btn-simple">
+        <input type="button" onclick="deleteContent()" value="delete" class="edit-button1">
+        <input type="button" onclick="cancel()" value="cancel" class="edit-button2">
 
 
     </form>
@@ -162,6 +163,5 @@
         }
 
     </script>
-
 
 {% endblock content %}

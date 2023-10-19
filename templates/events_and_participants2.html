@@ -2,16 +2,17 @@
 
 {% block content %}
 <div class="container">
+    
     <br>
     <br>
     <br>
-    <br>
+    <link rel="stylesheet" type="text/css" href="/static/styles/about.css">
 
     <h1>Intra Events and Participants</h1>
             {% for i in intra_event reversed %}
-            <div class="box">
-                <section class="hero is-primary">
-                    <div class="hero-body">
+            <div class="box" style="border: 2px solid #ac012a;">
+                <section class="overview-section">
+                    <div class="overview-text">
                         <p class="title">{{ i.title }}</p>
                         <iframe src="{{ i.excel_sheet_link }}"
                                 width="1200" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...>
@@ -26,6 +27,5 @@
         
 
 </div>
-
 
 {% endblock content %}

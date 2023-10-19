@@ -17,6 +17,11 @@
         <h2 class="section-title">Admin Panel</h2>
         <span>Edit Access</span>
         <p class="section-subtitle">Elevate Your Control: Mastering Edits with Precision on Our Admin Panel!</p>
+        
+        <a href={% url 'logout' %}>
+          <button type="button" class="edit-button1">Logout</button>
+        </a>
+
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
@@ -75,28 +80,13 @@
           </div>
       </div>
     </div>
-  </section>
-  <!-- blog Section End -->
 
 
-        <!-- <a href={% url 'achievements:create_achievement' %}>
-            <button type="button" class="edit-button">Create Achievement</button>
-        </a>
-        <a href={% url 'activity:create_activity' %}>
-            <button type="button" class="edit-button">Create Activity</button>
-        </a>
-        <a href={% url 'blogs:create_blog' %}>
-            <button type="button" class="edit-button">Create Blog</button>
-        </a> -->
-
-
-    </div>
-    <div class="container">
 
         <br>
         <br>
         <br>
-
+      <div class="container">
         <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
           <!-- Blog Item Starts -->
           <div class="blog-item-wrapper">
@@ -132,36 +122,77 @@
       </a>
       </div>
     </div>
+    </div>
 
     <br>
     <br>
-    <br>
-
-    <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
-      <!-- Blog Item Starts -->
-      <div class="blog-item-wrapper">
-        <div class="blog-item-img">
-            <img src="/media/admin_panel/participation.png" alt="">
+    <div class="container">
+      <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+        <!-- Blog Item Starts -->
+        <div class="blog-item-wrapper">
+          <div class="blog-item-img">
+              <img src="/media/admin_panel/parti.png" alt="">
+          </div>
+          <a href={% url 'intra_events_and_participants' %}>
+            <button type="button" class="edit-button">View Intra Event Participants</button>
+        </a>
         </div>
-        <a href={% url 'intra_events_and_participants' %}>
-          <button type="button" class="edit-button">View Intra Event Participants</button>
-      </a>
       </div>
     </div>
 
-        <!--
-          <a href={% url 'inter_events_and_participants' %}>
-            <button type="button">View Inter Event Participants</button>
-        </a>
-        <a href={% url 'intra_events_and_participants' %}>
-          <button type="button">View Intra Event Participants</button>
-      </a>
+  </section>
 
-        -->
-        <a href={% url 'logout' %}>
-            <button type="button">Logout</button>
-        </a>
+  </div>
+
+  <footer>
+    <!-- Footer Area Start -->
+    <section class="footer-Content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <h3>IUTCS</h3>
+            <div class="textwidget">
+              <p>IUTCS continues to strive towards the development of the ICT Field and is fully dedicated with able minds to work on this goal.</p>
+            </div>
+            <ul class="footer-social">
+              <li><a class="facebook" href="https://www.facebook.com/IUTCS/"><i class="lni-facebook-filled"></i></a></li>
+              <li><a class="instagram" href="https://www.instagram.com/iutcs.official/"><i class="lni-twitter-filled"></i></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/company/iutcs/"><i class="lni-linkedin-fill"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title"><b><u>Short Link</u></b></h3>
+              <ul class="menu">
+                <li><a href="/executive_committee">Executive Committee</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/achievements">Achievements</a></li>
+                <li><a href="/activity">Activities</a></li>
+                <li><a href="/blogs">Blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title"><b><u>Contact Us</u></b></h3>
+              <ul class="contact-footer">
+                <li>
+                  <strong>Address :</strong> <span>Islamic University of Technology, Boardbazar, Gazipur</span>
+                </li>
+                <li>
+                  <strong>Phone :</strong> <span>+880-1791-665-709</span>
+                </li>
+                <li>
+                  <strong>E-mail :</strong> <span><a href="#">arshadbakshi@iut-dhaka.edu</a></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </footer>
 
 
-    </div>
 {% endblock content %}

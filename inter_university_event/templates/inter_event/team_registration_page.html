@@ -19,7 +19,8 @@ input, select, textarea{
 
     <div class="box">
         <section class="">
-            Team Name: <input type="text" name="team_name" required/><br/>
+            <b>Team Name</b>:<br>
+             <input type="text" name="team_name" class="title-input" required/><br/>
         </section>
     </div>
     {% for i in  inter_event.maximum_member|times %}
@@ -27,29 +28,31 @@ input, select, textarea{
         <section class="">
             
             {% if i is 0 %}
-            Team Leader Information: 
+        <b>Team Leader Information:</b> <br>
             <br>
-            Name*:
-            <input type="text" name="member_{{ i }}_name" required/><br/>
-            Email*:
-            <input type="email" name="member_{{ i }}_email" required/><br/>
-            Contact Number*:
-            <input type="tel" name="member_{{ i }}_phone" required/><br/>
-            Institute*:
-            <input type="text" name="member_{{ i }}_institute" required/><br/>
+        <b>Name*:</b><br>
+            <input type="text" name="member_{{ i }}_name" class="title-input" required/><br/>
+        <b>Email*:</b><br>
+            <input type="email" name="member_{{ i }}_email" class="title-input" required/><br/>
+            <b>Contact Number*:</b><br>
+            <label for="member_{{ i }}_phone">+880</label>
+            <input type="tel" name="member_{{ i }}_phone" class="title-input" id="member_{{ i }}_phone" required/><br/>
+        <b>Institute*:</b><br>
+            <input type="text" name="member_{{ i }}_institute" class="title-input" required/><br/>
 
             
             {% else %}
-            Member {{ i|add:1 }} Information: 
+        <b> Member {{ i|add:1 }} Information:</b> <br>
             <br>
-            Name:
-            <input type="text" name="member_{{ i }}_name" /><br/>
-            Email:
-            <input type="email" name="member_{{ i }}_email" /><br/>
-            Contact Number:
-            <input type="tel" name="member_{{ i }}_phone" /><br/>
-            Institute:
-            <input type="text" name="member_{{ i }}_institute" /><br/>
+        <b>Name:</b><br>
+            <input type="text" name="member_{{ i }}_name" class="title-input"/><br/>
+        <b>Email:</b><br>
+            <input type="email" name="member_{{ i }}_email" class="title-input"/><br/>
+            <b>Contact Number:</b><br>
+<label for="member_{{ i }}_phone">+880</label>
+<input type="tel" name="member_{{ i }}_phone" class="title-input" id="member_{{ i }}_phone" /><br/>
+        <b>Institute:</b><br>
+            <input type="text" name="member_{{ i }}_institute" class="title-input"/><br/>
             {% endif %}
             
         </section>
@@ -58,10 +61,15 @@ input, select, textarea{
     
     {% endfor %}
 
-    <h6>Check before submit</h6>
-    <input type="checkbox" id="myCheckbox" name="confirm" required>
+    
+        
+        
+            <input type="checkbox" id="myCheckbox" name="confirm" required>
+            <b>  Check before submit</b>
+            
+   
     <br>
-        <input type="submit" value="Submit" />
+        <input type="submit" class ="edit-button1"value="Submit" />
 </form>
 
 <script>
@@ -86,5 +94,4 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
         });
 </script>
 
-    
 {% endblock %}

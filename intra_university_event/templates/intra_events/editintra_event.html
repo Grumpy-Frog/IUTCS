@@ -27,8 +27,8 @@
         <input name="title" value="{{ intra_event.title }}" class="title-input">
         <br><br>
         Time:<br>
-       
-        <input type="datetime-local" id="time" name="time" class="title-input">
+        <p class="subtitle">{{ intra_event.time|date:"Y-m-d  H:i" }}</p>
+        <input type="datetime-local" id="time" name="time" class="title-input" >
         <br><br>
 
         Google Form Link:<br>
@@ -163,6 +163,5 @@
         }
 
     </script>
-
 
 {% endblock content %}

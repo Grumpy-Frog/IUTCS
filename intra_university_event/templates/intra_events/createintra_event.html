@@ -11,21 +11,20 @@
         {% csrf_token %}
 
 
-        Title: <input type="text" class="title-input" name="title" required/><br/><br>
+        <br><b>Title:</b><br><input type="text" class="title-input" name="title" required/><br/><br>
 
 
-        Time:
-        <input type="datetime-local" id="activity_time" name="time" required>
+        <b> Time:</b><br>
+        <input type="datetime-local" class="title-input" id="activity_time" name="time" required>
         <br>
-
-        Google Form Link: 
-        <input type="text" name="form_link" required/>
+        <br><b>Google Form Link: </b><br>
+        <input type="text"class="title-input"  name="form_link" required/>
         <br/>
-        Excel SHeet Link:
-        <input type="text" name="excel_sheet_link" required>
+       <br> <b>Excel Sheet Link:</b><br>
+        <input type="text"class="title-input"  name="excel_sheet_link" required>
 
         <br>
-        Image:
+    <b>Image:</b><br>
         <div class="overview-image">
             <img id="imagePreview" src="{{ intra_event.image }}">
         </div>

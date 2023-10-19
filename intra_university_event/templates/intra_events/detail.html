@@ -14,7 +14,7 @@
                 <p class="subtitle">{{ intra_event.time|date:"Y-m-d H:i" }}<br><br></p>
                 
                 <a href="{{ intra_event.google_form_link }}"  target="_blank" rel="noopener noreferrer" >
-                  <u><b>  Click Here For Registration</b></u>
+                    <button type="button" class="edit-button"> Click Here For Registration</button>
                 </a>
             </div>
             
@@ -23,19 +23,16 @@
                 <img src="{{ intra_event.image }}">            
             </div>
             
-        </section>
+        
         </div>
 
-        <div class=""box>
+     
+        <div class="box">
             
-               
-                    <p>
-                        {{ intra_event.content|convert_markdown|safe }}<br>
-                    </p>
-
+            {{ intra_event.content|convert_markdown|safe }}
         </div>
 
-
+    </section>
    
 {% endblock %} 
 
