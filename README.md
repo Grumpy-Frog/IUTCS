@@ -1,5 +1,4 @@
 # IUTCS
-# IUTCS
 
 Note : Websites hosted on www.render.com experience higher latency than the average due to their free plan. Additionally, because of the free plan, any images uploaded to a website hosted on Render will be automatically deleted after a short period of time. 
 
@@ -15,6 +14,6 @@ The website also incorporates an Email Notification system to relay the competit
 
 Lastly, the website includes a Leaderboard page that displays the status of competitions.
 
-For detailed workflow you can refer to IUTCS - Web Off - Minty Developers.pdf available in the repository and download the raw file.
+###For detailed workflow you can refer to IUTCS - Web Off - Minty Developers.pdf available in the repository and download the raw file.
 
-[Click here to download IUTCS - Web Off - Minty Developers.pdf](IUTCS - Web Off - Minty Developers.pdf)
+
