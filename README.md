@@ -16,4 +16,5 @@ The website also incorporates an Email Notification system to relay the competit
 Lastly, the website includes a Leaderboard page that displays the status of competitions.
 
 For detailed workflow you can refer to IUTCS - Web Off - Minty Developers.pdf available in the repository and download the raw file.
-[Click here to download the PDF](/IUTCS - Web Off - Minty Developers.pdf)
+
+<a href="[introduction](https://github.com/Grumpy-Frog/IUTCS/blob/main/IUTCS%20-%20Web%20Off%20-%20Minty%20Developers.pdf)https://github.com/Grumpy-Frog/IUTCS/blob/main/IUTCS%20-%20Web%20Off%20-%20Minty%20Developers.pdf" target="_blank">[Click here to download IUTCS - Web Off - Minty Developers.pdf PDF]</a>
