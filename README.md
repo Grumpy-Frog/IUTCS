@@ -14,6 +14,6 @@ The website also incorporates an Email Notification system to relay the competit
 
 Lastly, the website includes a Leaderboard page that displays the status of competitions.
 
-###For detailed workflow you can refer to IUTCS - Web Off - Minty Developers.pdf available in the repository and download the raw file.
+### For detailed workflow you can refer to IUTCS - Web Off - Minty Developers.pdf available in the repository and download the raw file.
 
 
