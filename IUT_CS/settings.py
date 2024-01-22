@@ -98,7 +98,7 @@ LOGIN_REDIRECT_URL = 'admin_panel'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-IS_LOCALHOST = 2
+IS_LOCALHOST = 3
 
 if IS_LOCALHOST == 1:
     DATABASES = {
@@ -155,7 +155,7 @@ else:
     }
 
     DATABASES["default"] = dj_database_url.parse(
-        "postgres://iutcs_user:ylJkVP0TO9wG6n38kYQT7JI9xLuej3TK@dpg-cka726mv3ddc73bjib50-a.oregon-postgres.render.com/iutcs")
+        "postgres://iutcs_h3of_user:HX8qhsCXoQ4Y1Jag9eEKQSu4pj2reXYq@dpg-cmkdm2da73kc73blcvlg-a.oregon-postgres.render.com/iutcs_h3of")
 
 '''
 DATABASES = {
