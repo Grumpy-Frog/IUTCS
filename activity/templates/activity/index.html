@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var markdownContent = document.getElementById('markdown-content').innerText;
+        var htmlContent = marked(markdownContent);
+        document.getElementById('markdown-content').innerHTML = htmlContent;
+    });
+</script>
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/static/styles/about.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -15,7 +21,7 @@
                 <div class="overview-text">
                     <h2 class="title">{{ i.title }}</h2>
     
-                    <p class="subtitle" >{{ i.description }}</p>
+                    <div id="markdown-content"><p class="subtitle" >{{ i.description }}</p></div>
                     <p class="subtitle">{{ i.time|date:"Y-m-d  H:i" }}</p>
                 
                 {% if user.is_authenticated %}
