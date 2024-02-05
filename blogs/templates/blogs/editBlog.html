@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
     <br><br><br>
-    <h1>Edit Blog or News</h1>
+    <h1>Edit Blog </h1>
     <form action="{% url 'blogs:update_blog' pk=blog.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         {{ form.media }}
