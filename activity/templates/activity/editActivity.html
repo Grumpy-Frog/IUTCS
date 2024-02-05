@@ -4,7 +4,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/static/styles/edit_achievement.css">
 <br><br><br><br>
-<h1>Edit Activity </h1><br>
+<h1>Edit Activity or News </h1><br>
     <form action="{% url 'activity:update_activity' pk=activity.pk %}" method="POST" enctype="multipart/form-data" id="myForm">
         {% csrf_token %}
         Title:<br>
