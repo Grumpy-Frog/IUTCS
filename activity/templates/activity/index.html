@@ -15,7 +15,7 @@
                 <div class="overview-text">
                     <h2 class="title">{{ i.title }}</h2>
     
-                    <pre class="subtitle" >{{ i.description }}</pre>
+                    <p class="subtitle" >{{ i.description }}</p>
                     <p class="subtitle">{{ i.time|date:"Y-m-d  H:i" }}</p>
                 
                 {% if user.is_authenticated %}
